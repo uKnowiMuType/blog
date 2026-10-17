@@ -8,23 +8,10 @@ const SITE_LANG = resolveSiteLang("zh_CN");
 
 // 页面开关配置 - 控制特定页面的访问权限，设为false会返回404并自动隐藏对应的导航栏菜单项
 const pages = resolvePageToggles({
-	// ── 社交 (Social) ──────────────────────────────────
-
-	// 友链页面开关
-	friends: true,
-	// 留言板页面开关，需要配置评论系统
-	guestbook: true,
-
-	// ── 我的 (My) ──────────────────────────────────
-
 	// 动态页面开关
 	dynamic: true,
 	// 项目展示页开关
 	projects: true,
-	// 相册页面开关
-	gallery: true,
-	// 书签导航页面开关
-	booknav: true,
 	// 哔哩哔哩追番页面开关
 	bilibili: false,
 	// 番组计划页面开关
@@ -33,22 +20,17 @@ const pages = resolvePageToggles({
 	vndb: false,
 	// MyAnimeList页面开关
 	mal: false,
-
-	// ── 关于 (About) ──────────────────────────────────
-
-	// 打赏页面开关
-	sponsor: true,
 });
 
 export const siteConfig: SiteConfig = {
 	// 站点标题
-	title: "Firefly",
+	title: "uKnowiMyourType の Blog",
 
 	// 站点副标题
-	subtitle: "Demo site",
+	subtitle: "",
 
 	// 站点 URL
-	site_url: "https://firefly.cuteleaf.cn",
+	site_url: "https://uknowimutype.github.io",
 
 	// 站点描述
 	description:
@@ -91,7 +73,7 @@ export const siteConfig: SiteConfig = {
 	favicon: [
 		{
 			// 图标文件路径
-			src: "/favicon/firefly-32.png",
+			src: "/favicon/favicon.png",
 			// 可选，指定主题 'light' | 'dark'
 			// theme: "light",
 			// 可选，图标大小
@@ -101,7 +83,7 @@ export const siteConfig: SiteConfig = {
 
 	// 导航栏配置
 	navbar: {
-		// 导航栏Logo
+		// 站点 Logo，供导航栏、分享海报和结构化数据使用
 		// 支持三种类型：
 		// 1. Astro图标库: { type: "icon", value: "material-symbols:home-pin-outline" }
 		// 2. 本地图片（public目录，不优化）: { type: "image", value: "/assets/images/logo.webp", alt: "Logo" }
@@ -112,18 +94,13 @@ export const siteConfig: SiteConfig = {
 		// 使用 Astro 图标库时不需要设置 valueDark，图标会自动跟随主题亮暗色切换
 		logo: {
 			type: "image",
-			value: "assets/images/logo/firefly-light.png",
-			valueDark: "assets/images/logo/firefly-dark.png",
-			alt: "🍀",
+			value: "assets/images/logo/cat-head.png",
+			alt: "橘猫站点图标",
 		},
-		// 导航栏标题
-		title: "Firefly Blog",
 		// 全宽导航栏，导航栏是否占满屏幕宽度
 		widthFull: false,
 		// 导航菜单对齐方式，left：左对齐，center：居中
 		menuAlign: "center",
-		// 导航栏图标和标题是否跟随主题色
-		followTheme: false,
 		// 导航栏模式navbarMode：
 		// "static"：不固定，随页面滚动消失
 		// "fixed"：固定在顶部常显
@@ -131,10 +108,7 @@ export const siteConfig: SiteConfig = {
 		navbarMode: "dynamic",
 	},
 
-	// 站点开始日期，用于统计运行天数
-	siteStartDate: "2025-01-01",
-
-	// 站点时区（IANA 时区字符串），用于格式化bangumi、rss里的构建日期时间等等..
+	// 站点时区（IANA 时区字符串），用于格式化页面中的日期和时间。
 	// 示例："Asia/Shanghai", "UTC", 如果为空，则按照构建服务器的时区进行时区转换
 	timezone: "Asia/Shanghai",
 
@@ -347,14 +321,6 @@ export const siteConfig: SiteConfig = {
 			"*.myanimelist.net",
 			"*.vndb.org",
 		],
-	},
-
-	// ── 订阅 (RSS / Atom) 配置 ──────────────────────────────────
-	feed: {
-		// 订阅条目内容模式：
-		// - "full": 包含文章正文全文（默认）
-		// - "summary": 仅包含文章摘要/描述，不含正文，体积更小
-		contentMode: "full",
 	},
 
 	// 站点语言，在本配置文件顶部SITE_LANG定义

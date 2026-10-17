@@ -7,6 +7,7 @@ export const ko: Translation = {
 	[Key.archive]: "아카이브",
 	[Key.search]: "검색",
 	[Key.searchNoResults]: "검색 결과가 없습니다.",
+	[Key.searchError]: "검색을 사용할 수 없습니다. 다시 시도해 주세요.",
 	[Key.searchTypeSomething]: "검색어를 입력하세요...",
 	[Key.searchLoading]: "검색 중...",
 	[Key.searchSummary]: "요약",
@@ -16,10 +17,6 @@ export const ko: Translation = {
 
 	// 네비게이션 메뉴 그룹
 	[Key.navArticles]: "글",
-	[Key.navSocial]: "소셜",
-	[Key.navMine]: "마이",
-	[Key.navAbout]: "소개",
-	[Key.navLinks]: "링크",
 	[Key.all]: "전체",
 
 	[Key.tags]: "태그",
@@ -31,10 +28,7 @@ export const ko: Translation = {
 	[Key.postList]: "게시글 목록",
 	[Key.tableOfContents]: "목차",
 	[Key.tocEmpty]: "이 페이지에는 목차가 없습니다",
-	[Key.music]: "음악",
 	[Key.dynamic]: "일상",
-	[Key.latestDynamics]: "최신 일상",
-	[Key.moreDynamics]: "더 많은 일상",
 	[Key.dynamicDescription]: "짧은 생각과 일상을 기록합니다.",
 	[Key.dynamicEmpty]: "아직 게시된 일상이 없습니다",
 	[Key.dynamicSearch]: "일상 검색...",
@@ -51,24 +45,6 @@ export const ko: Translation = {
 	[Key.dynamicNextImage]: "다음 이미지",
 	[Key.dynamicViewImage]: "이미지 {index} 보기",
 	[Key.dynamicSelectImage]: "이미지 {index} 선택",
-	[Key.musicNoPlaying]: "재생 중인 곡 없음",
-	[Key.musicLyrics]: "가사",
-	[Key.musicVolume]: "볼륨",
-	[Key.musicPlayMode]: "재생 모드 전환",
-	[Key.musicPrev]: "이전 곡",
-	[Key.musicNext]: "다음 곡",
-	[Key.musicPlaylist]: "재생목록",
-	[Key.musicNoLyrics]: "가사 없음",
-	[Key.musicLoadingLyrics]: "가사 불러오는 중...",
-	[Key.musicFailedLyrics]: "가사를 불러오지 못했습니다",
-	[Key.musicNoSongs]: "곡 없음",
-	[Key.musicError]: "플레이어 오류",
-	[Key.musicPlay]: "재생",
-	[Key.musicPause]: "일시정지",
-	[Key.musicProgress]: "재생 진행률",
-	[Key.musicCover]: "커버",
-	[Key.musicNoCover]: "커버 이미지 없음",
-	[Key.musicAudioPlayer]: "오디오 플레이어",
 
 	// Announcement
 	[Key.announcement]: "공지사항",
@@ -78,17 +54,6 @@ export const ko: Translation = {
 	[Key.commentSection]: "댓글",
 	[Key.commentSubtitle]: "생각을 공유하고 모두와 이야기해 보세요",
 	[Key.commentNotConfigured]: "댓글 시스템이 설정되지 않았습니다",
-	[Key.guestbookCommentHint]:
-		"설정 파일에서 댓글 시스템을 아직 활성화하지 않았습니다. 활성화하면 방문자가 이곳에 메시지를 남길 수 있습니다",
-	[Key.friends]: "친구",
-	[Key.friendsDescription]:
-		"여기는 제 친구들입니다. 방문하여 서로 교류해 보세요",
-	[Key.searchFriends]: "친구 검색...",
-	[Key.friendsEmpty]: "아직 친구가 없습니다.",
-	[Key.booknav]: "북마크 모음",
-	[Key.booknavDescription]: "유용한 사이트를 카테고리별로 모았습니다.",
-	[Key.searchBooknav]: "북마크 검색...",
-	[Key.booknavEmpty]: "북마크가 없습니다.",
 
 	// 프로젝트 쇼케이스
 	[Key.projects]: "프로젝트",
@@ -101,9 +66,6 @@ export const ko: Translation = {
 	[Key.projectStatusDeveloping]: "개발 중",
 	[Key.projectStatusPublished]: "출시됨",
 	[Key.projectStatusArchived]: "보관됨",
-	[Key.guestbook]: "방명록",
-	[Key.guestbookDescription]:
-		"이곳에 흔적을 남기고 생각과 제안을 공유해 주세요",
 	[Key.untitled]: "제목 없음",
 	[Key.uncategorized]: "미분류",
 	[Key.noTags]: "태그 없음",
@@ -313,36 +275,6 @@ export const ko: Translation = {
 		"죄송합니다. 방문하신 페이지가 존재하지 않거나 이동되었습니다.",
 	[Key.backToHome]: "홈으로 돌아가기",
 
-	// RSS Page
-	[Key.rss]: "RSS 피드",
-	[Key.rssDescription]: "최신 소식을 구독하세요",
-	[Key.rssSubtitle]: "RSS를 구독하여 최신 글과 업데이트를 즉시 받아보세요",
-	[Key.rssLink]: "RSS 링크",
-	[Key.rssCopyToReader]: "링크를 RSS 리더기에 복사하세요",
-	[Key.rssCopyLink]: "링크 복사",
-	[Key.rssLatestPosts]: "최신 게시글",
-	[Key.rssWhatIsRSS]: "RSS란 무엇인가요?",
-	[Key.rssWhatIsRSSDescription]:
-		"RSS(Really Simple Syndication)는 자주 업데이트되는 콘텐츠를 게시하기 위한 표준 형식입니다. RSS를 사용하면 다음이 가능합니다:",
-	[Key.rssBenefit1]:
-		"직접 방문하지 않고도 최신 웹사이트 콘텐츠를 제때 받아볼 수 있습니다",
-	[Key.rssBenefit2]: "여러 웹사이트의 구독을 한 곳에서 관리할 수 있습니다",
-	[Key.rssBenefit3]: "중요한 업데이트와 글을 놓치지 않을 수 있습니다",
-	[Key.rssBenefit4]: "광고 없는 깔끔한 읽기 환경을 즐길 수 있습니다",
-	[Key.rssHowToUse]:
-		"Feedly, Inoreader 등 RSS 리더기를 사용하여 이 사이트를 구독하는 것을 권장합니다.",
-	[Key.rssCopied]: "RSS 링크가 클립보드에 복사되었습니다!",
-	[Key.rssCopyFailed]: "복사에 실패했습니다. 링크를 직접 복사해 주세요",
-
-	// Atom Page
-	[Key.atom]: "Atom 피드",
-	[Key.atomDescription]: "최신 업데이트 구독",
-	[Key.atomSubtitle]:
-		"Atom으로 구독하면 최신 글과 업데이트를 바로 받을 수 있습니다",
-	[Key.atomLink]: "Atom 링크",
-	[Key.atomCopyToReader]: "Atom 리더에 링크 복사",
-	[Key.atomCopied]: "Atom 링크가 클립보드에 복사되었습니다!",
-
 	// Last Modified Time Card
 	[Key.lastModifiedPrefix]: "마지막 업데이트: ",
 	[Key.lastModifiedOutdated]: "일부 내용이 오래되었을 수 있습니다",
@@ -418,23 +350,6 @@ export const ko: Translation = {
 	[Key.postListLayoutList]: "목록형",
 	[Key.postListLayoutGrid]: "격자형",
 
-	// Sponsor Page
-	[Key.sponsor]: "후원",
-	[Key.sponsorTitle]: "저를 후원해 주세요",
-	[Key.sponsorDescription]:
-		"제 콘텐츠가 도움이 되셨다면 아래 방법으로 후원해 주세요. 여러분의 후원은 계속 창작할 수 있는 원동력이 됩니다!",
-	[Key.sponsorMethods]: "결제 방법",
-	[Key.sponsorList]: "후원자",
-	[Key.sponsorEmpty]: "아직 후원자가 없습니다",
-	[Key.sponsorAmount]: "금액",
-	[Key.sponsorDate]: "날짜",
-	[Key.sponsorMessage]: "메시지",
-	[Key.sponsorAnonymous]: "익명",
-	[Key.scanToSponsor]: "스캔하여 후원하기",
-	[Key.sponsorGoTo]: "후원하러 가기",
-	[Key.sponsorButton]: "응원 & 공유",
-	[Key.sponsorButtonText]: "이 글이 도움이 되셨다면 공유하거나 후원해 주세요!",
-
 	[Key.shareOnSocial]: "글 공유하기",
 	[Key.shareOnSocialDescription]:
 		"이 글이 도움이 되셨다면 다른 사람과 공유해 주세요!",
@@ -446,25 +361,9 @@ export const ko: Translation = {
 	[Key.siteStatsCategoryCount]: "카테고리",
 	[Key.siteStatsTagCount]: "태그",
 	[Key.siteStatsTotalWords]: "총 단어 수",
-	[Key.siteStatsRunningDays]: "운영 일수",
 	[Key.siteStatsLastUpdate]: "최근 활동",
 	[Key.siteStatsDaysAgo]: "{days}일 전",
-	[Key.siteStatsDays]: "{days}일",
 	[Key.today]: "오늘",
-
-	// Site Info
-	[Key.siteInfo]: "사이트 정보",
-	[Key.siteInfoBuildTime]: "빌드 시각",
-	[Key.siteInfoBuildPlatform]: "빌드 플랫폼",
-	[Key.siteInfoBlogVersion]: "블로그 버전",
-	[Key.siteInfoAstroVersion]: "Astro 버전",
-	[Key.siteInfoNodeVersion]: "Node 버전",
-	[Key.siteInfoPnpmVersion]: "pnpm 버전",
-	[Key.siteInfoSystem]: "시스템",
-	[Key.siteInfoExpand]: "빌드 정보 표시",
-	[Key.siteInfoCollapse]: "빌드 정보 숨기기",
-	[Key.siteInfoDomain]: "도메인",
-	[Key.siteInfoLicense]: "라이선스",
 
 	// Calendar Component
 	[Key.calendarSunday]: "일",
@@ -502,15 +401,6 @@ export const ko: Translation = {
 	[Key.codeCollapsibleShowLess]: "간략히 보기",
 	[Key.codeCollapsibleExpanded]: "코드 블록 펼쳐짐",
 	[Key.codeCollapsibleCollapsed]: "코드 블록 접힘",
-
-	// Gallery Page
-	[Key.gallery]: "갤러리",
-	[Key.galleryDescription]: "삶의 아름다운 순간을 담다",
-	[Key.galleryPhotos]: "장",
-	[Key.galleryAlbums]: "앨범",
-	[Key.galleryNoAlbums]: "아직 앨범이 없습니다",
-	[Key.galleryBackToAlbums]: "앨범으로 돌아가기",
-	[Key.galleryEnterAlbum]: "앨범 보기",
 	[Key.searchAlbums]: "앨범 검색...",
 
 	// Password Protection
@@ -521,15 +411,7 @@ export const ko: Translation = {
 	[Key.passwordPlaceholder]: "비밀번호 입력",
 	[Key.passwordSubmit]: "잠금 해제",
 	[Key.passwordError]: "비밀번호가 올바르지 않습니다. 다시 시도해 주세요.",
-	[Key.passwordProtectedRss]:
-		"이 글은 암호화되어 있습니다. 웹사이트에서 확인해 주세요.",
 
-	// Background video player
-	[Key.videoPlay]: "배경 영상 재생",
-	[Key.videoPause]: "배경 영상 일시정지",
-	[Key.videoPrev]: "이전 영상",
-	[Key.videoNext]: "다음 영상",
-	[Key.videoLoadError]: "영상을 불러오지 못했습니다",
 
 	// 몰입형 읽기
 	[Key.immersiveReading]: "몰입형 읽기",

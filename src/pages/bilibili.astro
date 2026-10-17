@@ -10,10 +10,11 @@ import "@/styles/pages/media-grid.css";
 import type { StandardizedAnime } from "@/types/bilibili";
 import { fetchBilibiliList } from "@/utils/bilibili-utils";
 import { formatDateI18n } from "@/utils/date-utils";
+import { url } from "@/utils/url-utils";
 
 // 检查页面是否启用
 if (!siteConfig.pages.bilibili) {
-	return Astro.redirect("/404/");
+	return Astro.redirect(url("/404/"));
 }
 
 // 获取构建时间

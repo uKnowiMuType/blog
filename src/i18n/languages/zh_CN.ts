@@ -7,6 +7,7 @@ export const zh_CN: Translation = {
 	[Key.archive]: "归档",
 	[Key.search]: "搜索",
 	[Key.searchNoResults]: "找不到相关结果。",
+	[Key.searchError]: "搜索暂时不可用，请重试。",
 	[Key.searchTypeSomething]: "请输入搜索关键词。",
 	[Key.searchLoading]: "正在搜索...",
 	[Key.searchSummary]: "摘要",
@@ -16,10 +17,6 @@ export const zh_CN: Translation = {
 
 	// 导航栏菜单分组
 	[Key.navArticles]: "文章",
-	[Key.navSocial]: "社交",
-	[Key.navMine]: "我的",
-	[Key.navAbout]: "关于",
-	[Key.navLinks]: "链接",
 	[Key.all]: "全部",
 
 	[Key.tags]: "标签",
@@ -31,10 +28,7 @@ export const zh_CN: Translation = {
 	[Key.postList]: "文章列表",
 	[Key.tableOfContents]: "文章目录",
 	[Key.tocEmpty]: "当前页面没有目录",
-	[Key.music]: "音乐",
 	[Key.dynamic]: "动态",
-	[Key.latestDynamics]: "最新动态",
-	[Key.moreDynamics]: "更多动态",
 	[Key.dynamicDescription]: "随手记下此刻的想法与日常。",
 	[Key.dynamicEmpty]: "还没有发布动态",
 	[Key.dynamicSearch]: "搜索动态...",
@@ -51,24 +45,6 @@ export const zh_CN: Translation = {
 	[Key.dynamicNextImage]: "下一张图片",
 	[Key.dynamicViewImage]: "查看图片 {index}",
 	[Key.dynamicSelectImage]: "切换到图片 {index}",
-	[Key.musicNoPlaying]: "暂未播放",
-	[Key.musicLyrics]: "歌词",
-	[Key.musicVolume]: "音量",
-	[Key.musicPlayMode]: "切换播放模式",
-	[Key.musicPrev]: "上一首",
-	[Key.musicNext]: "下一首",
-	[Key.musicPlaylist]: "列表",
-	[Key.musicNoLyrics]: "暂无歌词",
-	[Key.musicLoadingLyrics]: "正在加载歌词...",
-	[Key.musicFailedLyrics]: "歌词加载失败",
-	[Key.musicNoSongs]: "暂无歌曲",
-	[Key.musicError]: "播放器错误",
-	[Key.musicPlay]: "播放",
-	[Key.musicPause]: "暂停",
-	[Key.musicProgress]: "播放进度",
-	[Key.musicCover]: "封面",
-	[Key.musicNoCover]: "暂无封面",
-	[Key.musicAudioPlayer]: "音频播放器",
 
 	// 公告栏
 	[Key.announcement]: "公告",
@@ -78,16 +54,6 @@ export const zh_CN: Translation = {
 	[Key.commentSection]: "评论区",
 	[Key.commentSubtitle]: "分享你的想法，与大家交流讨论",
 	[Key.commentNotConfigured]: "评论系统暂未配置",
-	[Key.guestbookCommentHint]:
-		"您还未在配置文件中启用评论系统，启用后访客才可在此留言",
-	[Key.friends]: "友链",
-	[Key.friendsDescription]: "这里是我的朋友们，欢迎互相访问交流",
-	[Key.searchFriends]: "搜索友链...",
-	[Key.friendsEmpty]: "暂无友情链接",
-	[Key.booknav]: "书签导航",
-	[Key.booknavDescription]: "收藏一些好用的网站，按分类整理",
-	[Key.searchBooknav]: "搜索书签...",
-	[Key.booknavEmpty]: "暂无书签",
 
 	// 项目展示页
 	[Key.projects]: "项目",
@@ -100,8 +66,6 @@ export const zh_CN: Translation = {
 	[Key.projectStatusDeveloping]: "开发中",
 	[Key.projectStatusPublished]: "已发布",
 	[Key.projectStatusArchived]: "已归档",
-	[Key.guestbook]: "留言",
-	[Key.guestbookDescription]: "欢迎在这里留下你的足迹，分享你的想法和建议",
 	[Key.untitled]: "无标题",
 	[Key.uncategorized]: "未分类",
 	[Key.noTags]: "无标签",
@@ -308,33 +272,6 @@ export const zh_CN: Translation = {
 	[Key.notFoundDescription]: "抱歉，您访问的页面不存在或已被移动。",
 	[Key.backToHome]: "返回首页",
 
-	// RSS页面
-	[Key.rss]: "RSS 订阅",
-	[Key.rssDescription]: "订阅获取最新更新",
-	[Key.rssSubtitle]: "通过 RSS 订阅，第一时间获取最新文章和动态",
-	[Key.rssLink]: "RSS 链接",
-	[Key.rssCopyToReader]: "复制链接到你的 RSS 阅读器",
-	[Key.rssCopyLink]: "复制链接",
-	[Key.rssLatestPosts]: "最新文章",
-	[Key.rssWhatIsRSS]: "什么是 RSS？",
-	[Key.rssWhatIsRSSDescription]:
-		"RSS（Really Simple Syndication）是一种用于发布经常更新内容的标准格式。通过 RSS，你可以：",
-	[Key.rssBenefit1]: "及时获取网站最新内容，无需手动访问",
-	[Key.rssBenefit2]: "在一个地方管理多个网站的订阅",
-	[Key.rssBenefit3]: "避免错过重要更新和文章",
-	[Key.rssBenefit4]: "享受无广告的纯净阅读体验",
-	[Key.rssHowToUse]: "推荐使用 Feedly、Inoreader 或其他 RSS 阅读器来订阅本站。",
-	[Key.rssCopied]: "RSS 链接已复制到剪贴板！",
-	[Key.rssCopyFailed]: "复制失败，请手动复制链接",
-
-	// Atom 页面
-	[Key.atom]: "Atom 订阅",
-	[Key.atomDescription]: "订阅获取最新更新",
-	[Key.atomSubtitle]: "通过 Atom 订阅，第一时间获取最新文章和动态",
-	[Key.atomLink]: "Atom 链接",
-	[Key.atomCopyToReader]: "复制链接到你的 Atom 阅读器",
-	[Key.atomCopied]: "Atom 链接已复制到剪贴板！",
-
 	//最后编辑时间卡片
 	[Key.lastModifiedPrefix]: "最后更新于 ",
 	[Key.lastModifiedOutdated]: "部分内容可能已过时",
@@ -410,24 +347,6 @@ export const zh_CN: Translation = {
 	[Key.postListLayoutList]: "列表",
 	[Key.postListLayoutGrid]: "网格",
 
-	// 打赏页面
-	[Key.sponsor]: "打赏",
-	[Key.sponsorTitle]: "打赏支持",
-	[Key.sponsorDescription]:
-		"如果我的内容对你有帮助，欢迎通过以下方式打赏我，你的支持是我持续创作的动力！",
-	[Key.sponsorMethods]: "打赏方式",
-	[Key.sponsorList]: "打赏列表",
-	[Key.sponsorEmpty]: "暂无打赏记录",
-	[Key.sponsorAmount]: "金额",
-	[Key.sponsorDate]: "日期",
-	[Key.sponsorMessage]: "留言",
-	[Key.sponsorAnonymous]: "匿名",
-	[Key.scanToSponsor]: "扫码打赏",
-	[Key.sponsorGoTo]: "前往打赏",
-	[Key.sponsorButton]: "支持与分享",
-	[Key.sponsorButtonText]:
-		"如果这篇文章对你有帮助，欢迎分享给更多人或打赏支持！",
-
 	[Key.shareOnSocial]: "文章分享",
 	[Key.shareOnSocialDescription]: "如果这篇文章对你有帮助，欢迎分享给更多人！",
 
@@ -438,25 +357,9 @@ export const zh_CN: Translation = {
 	[Key.siteStatsCategoryCount]: "分类",
 	[Key.siteStatsTagCount]: "标签",
 	[Key.siteStatsTotalWords]: "总字数",
-	[Key.siteStatsRunningDays]: "运行时长",
 	[Key.siteStatsLastUpdate]: "最后活动",
 	[Key.siteStatsDaysAgo]: "{days} 天前",
-	[Key.siteStatsDays]: "{days} 天",
 	[Key.today]: "今天",
-
-	// 站点信息
-	[Key.siteInfo]: "站点信息",
-	[Key.siteInfoBuildTime]: "构建时间",
-	[Key.siteInfoBuildPlatform]: "构建平台",
-	[Key.siteInfoBlogVersion]: "博客版本",
-	[Key.siteInfoAstroVersion]: "Astro",
-	[Key.siteInfoNodeVersion]: "Node",
-	[Key.siteInfoPnpmVersion]: "pnpm",
-	[Key.siteInfoSystem]: "系统信息",
-	[Key.siteInfoExpand]: "展开构建信息",
-	[Key.siteInfoCollapse]: "收起构建信息",
-	[Key.siteInfoDomain]: "站点域名",
-	[Key.siteInfoLicense]: "文章许可",
 
 	// 日历组件
 	[Key.calendarSunday]: "日",
@@ -494,15 +397,6 @@ export const zh_CN: Translation = {
 	[Key.codeCollapsibleShowLess]: "收起",
 	[Key.codeCollapsibleExpanded]: "代码块已展开",
 	[Key.codeCollapsibleCollapsed]: "代码块已折叠",
-
-	// 相册页面
-	[Key.gallery]: "相册",
-	[Key.galleryDescription]: "记录生活中的美好瞬间",
-	[Key.galleryPhotos]: "张照片",
-	[Key.galleryAlbums]: "本相册",
-	[Key.galleryNoAlbums]: "暂无相册",
-	[Key.galleryBackToAlbums]: "返回相册列表",
-	[Key.galleryEnterAlbum]: "进入相册",
 	[Key.searchAlbums]: "搜索相簿...",
 
 	// 密码保护
@@ -512,14 +406,7 @@ export const zh_CN: Translation = {
 	[Key.passwordPlaceholder]: "请输入密码",
 	[Key.passwordSubmit]: "解锁",
 	[Key.passwordError]: "密码错误，请重试。",
-	[Key.passwordProtectedRss]: "本文已加密保护，请访问网站查看。",
 
-	// 背景视频播放器
-	[Key.videoPlay]: "播放背景视频",
-	[Key.videoPause]: "暂停背景视频",
-	[Key.videoPrev]: "上一个视频",
-	[Key.videoNext]: "下一个视频",
-	[Key.videoLoadError]: "视频加载失败",
 
 	// 沉浸阅读
 	[Key.immersiveReading]: "沉浸阅读",

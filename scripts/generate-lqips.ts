@@ -13,7 +13,6 @@ const IGNORE_DIRS = [
 	"public/favicon/**",
 	"public/pio/**",
 	"public/assets/images/effects/**",
-	"public/assets/music/**",
 	"public/vndb-covers/**",
 ];
 

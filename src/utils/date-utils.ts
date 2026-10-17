@@ -54,11 +54,6 @@ export function formatDateI18n(
 		: date.toLocaleDateString(locale, options);
 }
 
-// 国际化日期时间格式化函数（带时分秒）
-export function formatDateI18nWithTime(dateInput: Date | string): string {
-	return formatDateI18n(dateInput, true);
-}
-
 export function formatDynamicDate(dateInput: Date | string): string {
 	const date = typeof dateInput === "string" ? new Date(dateInput) : dateInput;
 	const parts = new Intl.DateTimeFormat("en-CA", {

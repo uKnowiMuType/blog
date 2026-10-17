@@ -7,6 +7,7 @@ export const ja: Translation = {
 	[Key.archive]: "アーカイブ",
 	[Key.search]: "検索",
 	[Key.searchNoResults]: "結果が見つかりません。",
+	[Key.searchError]: "検索を利用できません。もう一度お試しください。",
 	[Key.searchTypeSomething]: "検索キーワードを入力してください。",
 	[Key.searchLoading]: "検索中...",
 	[Key.searchSummary]: "摘要",
@@ -16,10 +17,6 @@ export const ja: Translation = {
 
 	// ナビバーメニューグループ
 	[Key.navArticles]: "記事",
-	[Key.navSocial]: "ソーシャル",
-	[Key.navMine]: "マイ",
-	[Key.navAbout]: "について",
-	[Key.navLinks]: "リンク",
 	[Key.all]: "すべて",
 
 	[Key.tags]: "タグ",
@@ -31,10 +28,7 @@ export const ja: Translation = {
 	[Key.postList]: "投稿リスト",
 	[Key.tableOfContents]: "目次",
 	[Key.tocEmpty]: "このページには目次がありません",
-	[Key.music]: "音楽",
 	[Key.dynamic]: "つぶやき",
-	[Key.latestDynamics]: "最新の投稿",
-	[Key.moreDynamics]: "もっと見る",
 	[Key.dynamicDescription]: "日々の短い思いや出来事を記録します。",
 	[Key.dynamicEmpty]: "まだ投稿がありません",
 	[Key.dynamicSearch]: "投稿を検索...",
@@ -51,24 +45,6 @@ export const ja: Translation = {
 	[Key.dynamicNextImage]: "次の画像",
 	[Key.dynamicViewImage]: "画像 {index} を表示",
 	[Key.dynamicSelectImage]: "画像 {index} に切り替え",
-	[Key.musicNoPlaying]: "再生中なし",
-	[Key.musicLyrics]: "歌詞",
-	[Key.musicVolume]: "音量",
-	[Key.musicPlayMode]: "再生モードを切り替え",
-	[Key.musicPrev]: "前の曲",
-	[Key.musicNext]: "次の曲",
-	[Key.musicPlaylist]: "プレイリスト",
-	[Key.musicNoLyrics]: "歌詞なし",
-	[Key.musicLoadingLyrics]: "歌詞を読み込み中...",
-	[Key.musicFailedLyrics]: "歌詞の読み込みに失敗しました",
-	[Key.musicNoSongs]: "曲なし",
-	[Key.musicError]: "プレーヤーエラー",
-	[Key.musicPlay]: "再生",
-	[Key.musicPause]: "一時停止",
-	[Key.musicProgress]: "再生の進捗",
-	[Key.musicCover]: "カバー",
-	[Key.musicNoCover]: "カバーなし",
-	[Key.musicAudioPlayer]: "オーディオプレーヤー",
 
 	// お知らせ
 	[Key.announcement]: "お知らせ",
@@ -78,17 +54,6 @@ export const ja: Translation = {
 	[Key.commentSection]: "コメント欄",
 	[Key.commentSubtitle]: "あなたの考えを共有し、みんなと議論しましょう",
 	[Key.commentNotConfigured]: "コメントシステムが設定されていません",
-	[Key.guestbookCommentHint]:
-		"設定ファイルでコメントシステムをまだ有効にしていません。有効にすると、訪問者がここにメッセージを残せるようになります",
-	[Key.friends]: "友達",
-	[Key.friendsDescription]:
-		"ここは私の友達です、お互いに訪問して交流することを歓迎します",
-	[Key.searchFriends]: "友達を検索...",
-	[Key.friendsEmpty]: "まだ友達がいません",
-	[Key.booknav]: "ブックマーク集",
-	[Key.booknavDescription]: "便利なサイトをカテゴリ別に集めました",
-	[Key.searchBooknav]: "ブックマークを検索...",
-	[Key.booknavEmpty]: "ブックマークがありません",
 
 	// プロジェクト展示ページ
 	[Key.projects]: "プロジェクト",
@@ -101,9 +66,6 @@ export const ja: Translation = {
 	[Key.projectStatusDeveloping]: "開発中",
 	[Key.projectStatusPublished]: "公開済み",
 	[Key.projectStatusArchived]: "アーカイブ",
-	[Key.guestbook]: "ゲストブック",
-	[Key.guestbookDescription]:
-		"ここに足跡を残して、あなたの考えや提案を共有してください",
 	[Key.untitled]: "無題",
 	[Key.uncategorized]: "未分類",
 	[Key.noTags]: "タグなし",
@@ -313,35 +275,6 @@ export const ja: Translation = {
 		"申し訳ありませんが、アクセスしたページは存在しないか、移動されています。",
 	[Key.backToHome]: "ホームに戻る",
 
-	// RSSページ
-	[Key.rss]: "RSSフィード",
-	[Key.rssDescription]: "最新の更新を購読する",
-	[Key.rssSubtitle]: "RSSで購読して、最新の記事と更新を第一时间で取得する",
-	[Key.rssLink]: "RSSリンク",
-	[Key.rssCopyToReader]: "RSSリンクをリーダーにコピー",
-	[Key.rssCopyLink]: "リンクをコピー",
-	[Key.rssLatestPosts]: "最新の投稿",
-	[Key.rssWhatIsRSS]: "RSSとは？",
-	[Key.rssWhatIsRSSDescription]:
-		"RSS（Really Simple Syndication）は、頻繁に更新されるコンテンツを公開するための標準形式です。RSSを使用すると：",
-	[Key.rssBenefit1]:
-		"手動で訪問することなく、最新のウェブサイトコンテンツを及时に取得",
-	[Key.rssBenefit2]: "1か所で複数のウェブサイトの購読を管理",
-	[Key.rssBenefit3]: "重要な更新や記事を見逃すことを回避",
-	[Key.rssBenefit4]: "広告なしのクリーンな読書体験を楽しむ",
-	[Key.rssHowToUse]:
-		"Feedly、Inoreaderまたは他のRSSリーダーを使用してこのサイトを購読することを推奨します。",
-	[Key.rssCopied]: "RSSリンクがクリップボードにコピーされました！",
-	[Key.rssCopyFailed]: "コピーに失敗しました。手動でリンクをコピーしてください",
-
-	// Atom ページ
-	[Key.atom]: "Atom フィード",
-	[Key.atomDescription]: "最新の更新を購読",
-	[Key.atomSubtitle]: "Atom で購読すると、最新の記事と更新をすぐに受け取れます",
-	[Key.atomLink]: "Atom リンク",
-	[Key.atomCopyToReader]: "Atom リーダーにリンクをコピー",
-	[Key.atomCopied]: "Atom リンクをクリップボードにコピーしました！",
-
 	// 最終更新時間カード
 	[Key.lastModifiedPrefix]: "最終更新日：",
 	[Key.lastModifiedOutdated]: "一部の内容が古くなっている可能性があります",
@@ -417,24 +350,6 @@ export const ja: Translation = {
 	[Key.postListLayoutList]: "リスト",
 	[Key.postListLayoutGrid]: "グリッド",
 
-	// スポンサーページ
-	[Key.sponsor]: "スポンサー",
-	[Key.sponsorTitle]: "サポート",
-	[Key.sponsorDescription]:
-		"私のコンテンツがあなたの役に立ったなら、以下の方法で私をスポンサーしてください。あなたのサポートは私の継続的な創作の原動力です！",
-	[Key.sponsorMethods]: "支払い方法",
-	[Key.sponsorList]: "スポンサーリスト",
-	[Key.sponsorEmpty]: "スポンサー記録なし",
-	[Key.sponsorAmount]: "金額",
-	[Key.sponsorDate]: "日付",
-	[Key.sponsorMessage]: "メッセージ",
-	[Key.sponsorAnonymous]: "匿名",
-	[Key.scanToSponsor]: "スキャンしてスポンサー",
-	[Key.sponsorGoTo]: "スポンサーへ",
-	[Key.sponsorButton]: "サポートと共有",
-	[Key.sponsorButtonText]:
-		"この記事が役に立ったなら、共有またはサポートをお願いします！",
-
 	[Key.shareOnSocial]: "記事を共有",
 	[Key.shareOnSocialDescription]:
 		"この記事が役に立ったなら、ぜひ他の人と共有してください！",
@@ -446,25 +361,9 @@ export const ja: Translation = {
 	[Key.siteStatsCategoryCount]: "カテゴリー",
 	[Key.siteStatsTagCount]: "タグ",
 	[Key.siteStatsTotalWords]: "総文字数",
-	[Key.siteStatsRunningDays]: "運用日数",
 	[Key.siteStatsLastUpdate]: "最終活動",
 	[Key.siteStatsDaysAgo]: "{days} 日前",
-	[Key.siteStatsDays]: "{days} 日",
 	[Key.today]: "今日",
-
-	// サイト情報
-	[Key.siteInfo]: "サイト情報",
-	[Key.siteInfoBuildTime]: "ビルド日時",
-	[Key.siteInfoBuildPlatform]: "ビルドプラットフォーム",
-	[Key.siteInfoBlogVersion]: "ブログバージョン",
-	[Key.siteInfoAstroVersion]: "Astro バージョン",
-	[Key.siteInfoNodeVersion]: "Node バージョン",
-	[Key.siteInfoPnpmVersion]: "pnpm バージョン",
-	[Key.siteInfoSystem]: "システム情報",
-	[Key.siteInfoExpand]: "ビルド情報を展開",
-	[Key.siteInfoCollapse]: "ビルド情報を折畳む",
-	[Key.siteInfoDomain]: "ドメイン",
-	[Key.siteInfoLicense]: "ライセンス",
 
 	// カレンダーコンポーネント
 	[Key.calendarSunday]: "日",
@@ -502,15 +401,6 @@ export const ja: Translation = {
 	[Key.codeCollapsibleShowLess]: "折りたたむ",
 	[Key.codeCollapsibleExpanded]: "コードブロックが展開されました",
 	[Key.codeCollapsibleCollapsed]: "コードブロックが折りたたまれました",
-
-	// ギャラリーページ
-	[Key.gallery]: "ギャラリー",
-	[Key.galleryDescription]: "人生の美しい瞬間を記録する",
-	[Key.galleryPhotos]: "枚の写真",
-	[Key.galleryAlbums]: "冊のアルバム",
-	[Key.galleryNoAlbums]: "アルバムがありません",
-	[Key.galleryBackToAlbums]: "アルバム一覧に戻る",
-	[Key.galleryEnterAlbum]: "アルバムを見る",
 	[Key.searchAlbums]: "アルバムを検索...",
 
 	// パスワード保護
@@ -521,15 +411,7 @@ export const ja: Translation = {
 	[Key.passwordPlaceholder]: "パスワードを入力",
 	[Key.passwordSubmit]: "ロック解除",
 	[Key.passwordError]: "パスワードが間違っています。もう一度お試しください。",
-	[Key.passwordProtectedRss]:
-		"この記事は暗号化されています。ウェブサイトにアクセスしてご覧ください。",
 
-	// 背景動画プレイヤー
-	[Key.videoPlay]: "背景動画を再生",
-	[Key.videoPause]: "背景動画を一時停止",
-	[Key.videoPrev]: "前の動画",
-	[Key.videoNext]: "次の動画",
-	[Key.videoLoadError]: "動画の読み込みに失敗しました",
 
 	// 没入型リーディング
 	[Key.immersiveReading]: "没入型リーディング",

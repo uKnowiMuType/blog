@@ -17,6 +17,7 @@ export let url: string;
 export let siteTitle: string;
 export let avatar: string | null = null;
 export let avatarSelector: string | null = null;
+export let siteLogoImage: string | null = null;
 
 let showModal = false;
 let posterImage: string | null = null;
@@ -70,24 +71,6 @@ function resolveImageSource(
 	return image?.currentSrc || image?.src || src;
 }
 
-// 站点 Logo：图标优先复用导航栏已渲染的 SVG（astro-icon 覆盖完整图标库），图片复用导航栏已优化的地址
-function serializeNavbarIcon(color: string, size: number): string | null {
-	const svg = document.querySelector<SVGSVGElement>("#navbar svg.navbar-logo");
-	if (!svg) return null;
-
-	const clone = svg.cloneNode(true) as SVGSVGElement;
-	clone.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-	// 导航栏图标宽高是 1em，脱离文档后需要显式尺寸才能被 canvas 光栅化
-	clone.setAttribute("width", String(size));
-	clone.setAttribute("height", String(size));
-	clone.removeAttribute("class");
-	// 让图标内部的 currentColor 解析成海报里的颜色
-	clone.setAttribute("style", `color:${color}`);
-
-	const markup = new XMLSerializer().serializeToString(clone);
-	return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(markup)}`;
-}
-
 function buildIconDataUrl(icon: string, color: string): string | null {
 	const [prefix, name] = icon.split(":");
 	if (!prefix || !name) return null;
@@ -112,28 +95,17 @@ function buildIconDataUrl(icon: string, color: string): string | null {
 	return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
 }
 
-function resolveSiteLogoSource(color: string, size: number): string | null {
+function resolveSiteLogoSource(color: string): string | null {
+	if (siteLogoImage) return siteLogoImage;
 	const logo = siteConfig.navbar.logo;
 	if (!logo?.value) return null;
 
 	if (logo.type === "icon") {
-		// icons-data.json 只含 Svelte 组件用到的图标子集，因此优先取导航栏的 SVG
-		return (
-			serializeNavbarIcon(color, size) ?? buildIconDataUrl(logo.value, color)
-		);
+		return buildIconDataUrl(logo.value, color);
 	}
 
-	// src 目录下的图片经 Astro 优化后只有导航栏能拿到最终地址
-	// 海报背景是白色，因此固定取亮色版本的 Logo
-	const navbarLogo =
-		document.querySelector<HTMLImageElement>(
-			'#navbar img.navbar-logo[data-logo-theme="light"]',
-		) ?? document.querySelector<HTMLImageElement>("#navbar img.navbar-logo");
-	const navbarLogoSrc = navbarLogo?.currentSrc || navbarLogo?.src;
-	if (navbarLogoSrc) return navbarLogoSrc;
-
 	if (logo.type === "url") return logo.value;
-	// public 目录下的图片可直接拼接 base 路径，src 目录下的则无法在客户端还原
+	// 本地源图片地址由文章页解析后传入，独立于导航栏。
 	return logo.value.startsWith("/") || logo.value.startsWith("http")
 		? withBase(logo.value)
 		: null;
@@ -230,7 +202,7 @@ async function generatePoster() {
 			coverImageSelector,
 		);
 		const resolvedAvatar = resolveImageSource(avatar, avatarSelector);
-		const resolvedSiteLogo = resolveSiteLogoSource(headerTextColor, logoBox);
+		const resolvedSiteLogo = resolveSiteLogoSource(headerTextColor);
 		const [qrImg, coverImg, avatarImg, logoImg] = await Promise.all([
 			loadImage(qrCodeUrl),
 			resolvedCoverImage

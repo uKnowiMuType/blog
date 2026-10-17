@@ -14,7 +14,6 @@ import icon from "astro-icon";
 import { pluginLanguageLogo } from "ec-lang-logo"; /* Language Logo */
 import { pluginCollapsible } from "expressive-code-collapsible"; /* Collapsible */
 import { pluginLanguageBadge } from "expressive-code-language-badge"; /* Language Badge */
-import katex from "katex";
 import "katex/dist/contrib/mhchem.mjs"; // 加载 mhchem 扩展
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeCallouts from "rehype-callouts";
@@ -47,6 +46,7 @@ import rehypeImageReferrerPolicy from "./src/plugins/rehype-image-referrerpolicy
 import { rehypeMermaid } from "./src/plugins/rehype-mermaid.mjs";
 import { rehypePlantuml } from "./src/plugins/rehype-plantuml.mjs";
 import { parseDirectiveNode } from "./src/plugins/remark-directive-rehype.js";
+import { remarkDisplayMath } from "./src/plugins/remark-display-math.js";
 import { remarkExcerpt } from "./src/plugins/remark-excerpt.js";
 import { remarkImageGrid } from "./src/plugins/remark-image-grid.js";
 import { remarkMermaid } from "./src/plugins/remark-mermaid.js";
@@ -65,11 +65,17 @@ const adapter = process.env.CF_WORKERS
 		})
 	: undefined;
 
+const siteBase = process.env.NODE_ENV === "development" ? "/" : "/blog/";
+
 // https://astro.build/config
 export default defineConfig({
 	site: siteConfig.site_url,
+	devToolbar: {
+		enabled: false,
+	},
 
-	base: "/",
+	// 本地开发保留根路径，正式构建部署到 GitHub Pages 的 blog 子目录。
+	base: siteBase,
 	trailingSlash: "always",
 
 	// 字体配置 - 只加载实际使用的字体，跳过未引用的以加快构建
@@ -242,18 +248,6 @@ export default defineConfig({
 				if (pathname === "/dynamic/" && !siteConfig.pages.dynamic) {
 					return false;
 				}
-				if (pathname.startsWith("/gallery/") && !siteConfig.pages.gallery) {
-					return false;
-				}
-				if (pathname === "/friends/" && !siteConfig.pages.friends) {
-					return false;
-				}
-				if (pathname === "/guestbook/" && !siteConfig.pages.guestbook) {
-					return false;
-				}
-				if (pathname === "/booknav/" && !siteConfig.pages.booknav) {
-					return false;
-				}
 				if (pathname === "/bilibili/" && !siteConfig.pages.bilibili) {
 					return false;
 				}
@@ -275,9 +269,6 @@ export default defineConfig({
 				) {
 					return false;
 				}
-				if (pathname === "/sponsor/" && !siteConfig.pages.sponsor) {
-					return false;
-				}
 				return true;
 			},
 		}),
@@ -291,8 +282,12 @@ export default defineConfig({
 					? [remarkAdmonitionToBlockquoteCallout]
 					: []),
 				remarkMath,
+				remarkDisplayMath,
 				remarkReadingTime,
-				remarkWikiLink,
+				[
+					remarkWikiLink,
+					{ base: siteBase, includeDrafts: process.env.NODE_ENV === "development" },
+				],
 				remarkImageGrid,
 				remarkExcerpt,
 				remarkDirective,
@@ -302,7 +297,7 @@ export default defineConfig({
 				[remarkPlantuml, plantumlConfig],
 			],
 			rehypePlugins: [
-				[rehypeKatex, { katex }],
+				rehypeKatex,
 				[rehypeCallouts, { theme: siteConfig.post.rehypeCallouts.theme }],
 				rehypeSlug,
 				rehypeCodeGroup,

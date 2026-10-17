@@ -7,6 +7,7 @@ export const ru: Translation = {
 	[Key.archive]: "Архив",
 	[Key.search]: "Поиск",
 	[Key.searchNoResults]: "Результаты не найдены.",
+	[Key.searchError]: "Поиск недоступен. Попробуйте ещё раз.",
 	[Key.searchTypeSomething]: "Введите ключевое слово для поиска...",
 	[Key.searchLoading]: "Поиск...",
 	[Key.searchSummary]: "Резюме",
@@ -16,10 +17,6 @@ export const ru: Translation = {
 
 	// Группы меню навигации
 	[Key.navArticles]: "Статьи",
-	[Key.navSocial]: "Соцсети",
-	[Key.navMine]: "Моё",
-	[Key.navAbout]: "Обо мне",
-	[Key.navLinks]: "Ссылки",
 	[Key.all]: "Все",
 
 	[Key.tags]: "Теги",
@@ -31,10 +28,7 @@ export const ru: Translation = {
 	[Key.postList]: "Список постов",
 	[Key.tableOfContents]: "Содержание",
 	[Key.tocEmpty]: "На этой странице нет оглавления",
-	[Key.music]: "Музыка",
 	[Key.dynamic]: "Моменты",
-	[Key.latestDynamics]: "Последние публикации",
-	[Key.moreDynamics]: "Больше публикаций",
 	[Key.dynamicDescription]: "Короткие мысли и моменты повседневной жизни.",
 	[Key.dynamicEmpty]: "Пока нет публикаций",
 	[Key.dynamicSearch]: "Поиск публикаций...",
@@ -51,24 +45,6 @@ export const ru: Translation = {
 	[Key.dynamicNextImage]: "Следующее изображение",
 	[Key.dynamicViewImage]: "Открыть изображение {index}",
 	[Key.dynamicSelectImage]: "Выбрать изображение {index}",
-	[Key.musicNoPlaying]: "Ничего не воспроизводится",
-	[Key.musicLyrics]: "Текст песни",
-	[Key.musicVolume]: "Громкость",
-	[Key.musicPlayMode]: "Переключить режим воспроизведения",
-	[Key.musicPrev]: "Предыдущий трек",
-	[Key.musicNext]: "Следующий трек",
-	[Key.musicPlaylist]: "Плейлист",
-	[Key.musicNoLyrics]: "Текст песни отсутствует",
-	[Key.musicLoadingLyrics]: "Загрузка текста песни...",
-	[Key.musicFailedLyrics]: "Ошибка загрузки текста песни",
-	[Key.musicNoSongs]: "Нет песен",
-	[Key.musicError]: "Ошибка плеера",
-	[Key.musicPlay]: "Воспроизвести",
-	[Key.musicPause]: "Пауза",
-	[Key.musicProgress]: "Прогресс воспроизведения",
-	[Key.musicCover]: "Обложка",
-	[Key.musicNoCover]: "Нет обложки",
-	[Key.musicAudioPlayer]: "Аудиоплеер",
 
 	// Объявление
 	[Key.announcement]: "Объявление",
@@ -78,18 +54,6 @@ export const ru: Translation = {
 	[Key.commentSection]: "Комментарии",
 	[Key.commentSubtitle]: "Поделитесь своими мыслями и обсудите с остальными",
 	[Key.commentNotConfigured]: "Система комментариев не настроена",
-	[Key.guestbookCommentHint]:
-		"Вы еще не включили систему комментариев в файле конфигурации. После включения посетители смогут оставлять сообщения здесь",
-	[Key.friends]: "Ссылки",
-	[Key.friendsDescription]:
-		"Вот мои друзья, добро пожаловать посетить и общаться друг с другом",
-	[Key.searchFriends]: "Поиск друзей...",
-	[Key.friendsEmpty]: "Друзей пока нет.",
-	[Key.booknav]: "Каталог закладок",
-	[Key.booknavDescription]:
-		"Подборка полезных сайтов, сгруппированных по категориям.",
-	[Key.searchBooknav]: "Поиск закладок...",
-	[Key.booknavEmpty]: "Закладок пока нет.",
 
 	// Витрина проектов
 	[Key.projects]: "Проекты",
@@ -102,9 +66,6 @@ export const ru: Translation = {
 	[Key.projectStatusDeveloping]: "В разработке",
 	[Key.projectStatusPublished]: "Опубликовано",
 	[Key.projectStatusArchived]: "В архиве",
-	[Key.guestbook]: "Гостевая книга",
-	[Key.guestbookDescription]:
-		"Добро пожаловать, оставьте свой след здесь, поделитесь своими мыслями и предложениями",
 	[Key.untitled]: "Без названия",
 	[Key.uncategorized]: "Без категории",
 	[Key.noTags]: "Нет тегов",
@@ -314,38 +275,6 @@ export const ru: Translation = {
 		"Извините, страница, которую вы посетили, не существует или была перемещена.",
 	[Key.backToHome]: "Вернуться на главную",
 
-	// RSS Страница
-	[Key.rss]: "RSS лента",
-	[Key.rssDescription]: "Подпишитесь, чтобы получать последние обновления",
-	[Key.rssSubtitle]:
-		"Подписаться через RSS, чтобы сразу получать последние статьи и обновления",
-	[Key.rssLink]: "RSS ссылка",
-	[Key.rssCopyToReader]: "Скопировать ссылку в ваш RSS читатель",
-	[Key.rssCopyLink]: "Скопировать ссылку",
-	[Key.rssLatestPosts]: "Последние посты",
-	[Key.rssWhatIsRSS]: "Что такое RSS?",
-	[Key.rssWhatIsRSSDescription]:
-		"RSS (Really Simple Syndication) — стандартный формат для публикации часто обновляемого контента. С RSS вы можете:",
-	[Key.rssBenefit1]:
-		"Получать последний контент сайта вовремя без ручного посещения",
-	[Key.rssBenefit2]: "Управлять подписками на несколько сайтов в одном месте",
-	[Key.rssBenefit3]: "Не пропускать важные обновления и статьи",
-	[Key.rssBenefit4]: "Наслаждаться чистым чтением без рекламы",
-	[Key.rssHowToUse]:
-		"Рекомендуется использовать Feedly, Inoreader или другие RSS читатели для подписки на этот сайт.",
-	[Key.rssCopied]: "RSS ссылка скопирована в буфер обмена!",
-	[Key.rssCopyFailed]:
-		"Ошибка копирования, пожалуйста, скопируйте ссылку вручную",
-
-	// Atom Page
-	[Key.atom]: "Atom-лента",
-	[Key.atomDescription]: "Подпишитесь на последние обновления",
-	[Key.atomSubtitle]:
-		"Подпишитесь через Atom, чтобы сразу получать последние статьи и обновления",
-	[Key.atomLink]: "Atom-ссылка",
-	[Key.atomCopyToReader]: "Скопируйте ссылку в свой Atom-ридер",
-	[Key.atomCopied]: "Atom-ссылка скопирована в буфер обмена!",
-
 	// Последнее изменение
 	[Key.lastModifiedPrefix]: "Последнее обновление: ",
 	[Key.lastModifiedOutdated]: "Некоторый контент может быть устаревшим",
@@ -421,24 +350,6 @@ export const ru: Translation = {
 	[Key.postListLayoutList]: "Список",
 	[Key.postListLayoutGrid]: "Сетка",
 
-	// Страница спонсоров
-	[Key.sponsor]: "Спонсор",
-	[Key.sponsorTitle]: "Поддержать меня",
-	[Key.sponsorDescription]:
-		"Если мой контент был полезен для вас, добро пожаловать поддержать меня следующими способами. Ваша поддержка - это движущая сила моего постоянного творчества!",
-	[Key.sponsorMethods]: "Способы оплаты",
-	[Key.sponsorList]: "Спонсоры",
-	[Key.sponsorEmpty]: "Пока нет спонсоров",
-	[Key.sponsorAmount]: "Сумма",
-	[Key.sponsorDate]: "Дата",
-	[Key.sponsorMessage]: "Сообщение",
-	[Key.sponsorAnonymous]: "Анонимно",
-	[Key.scanToSponsor]: "Сканировать для поддержки",
-	[Key.sponsorGoTo]: "Перейти к спонсору",
-	[Key.sponsorButton]: "Поддержка и Поделиться",
-	[Key.sponsorButtonText]:
-		"Если эта статья помогла вам, пожалуйста, поделитесь или поддержите!",
-
 	[Key.shareOnSocial]: "Поделиться статьей",
 	[Key.shareOnSocialDescription]:
 		"Если эта статья помогла вам, пожалуйста, поделитесь ею с другими!",
@@ -450,25 +361,9 @@ export const ru: Translation = {
 	[Key.siteStatsCategoryCount]: "Категории",
 	[Key.siteStatsTagCount]: "Теги",
 	[Key.siteStatsTotalWords]: "Всего слов",
-	[Key.siteStatsRunningDays]: "Дней работы",
 	[Key.siteStatsLastUpdate]: "Последняя активность",
 	[Key.siteStatsDaysAgo]: "{days} дней назад",
-	[Key.siteStatsDays]: "{days} дней",
 	[Key.today]: "Сегодня",
-
-	// Информация о сайте
-	[Key.siteInfo]: "Информация о сайте",
-	[Key.siteInfoBuildTime]: "Время сборки",
-	[Key.siteInfoBuildPlatform]: "Платформа сборки",
-	[Key.siteInfoBlogVersion]: "Версия блога",
-	[Key.siteInfoAstroVersion]: "Astro",
-	[Key.siteInfoNodeVersion]: "Node",
-	[Key.siteInfoPnpmVersion]: "pnpm",
-	[Key.siteInfoSystem]: "Система",
-	[Key.siteInfoExpand]: "Показать информацию о сборке",
-	[Key.siteInfoCollapse]: "Скрыть информацию о сборке",
-	[Key.siteInfoDomain]: "Домен",
-	[Key.siteInfoLicense]: "Лицензия",
 
 	// Компонент календаря
 	[Key.calendarSunday]: "Вс",
@@ -506,15 +401,6 @@ export const ru: Translation = {
 	[Key.codeCollapsibleShowLess]: "Свернуть",
 	[Key.codeCollapsibleExpanded]: "Блок кода развернут",
 	[Key.codeCollapsibleCollapsed]: "Блок кода свернут",
-
-	// Страница галереи
-	[Key.gallery]: "Галерея",
-	[Key.galleryDescription]: "Запечатлеть прекрасные моменты жизни",
-	[Key.galleryPhotos]: "фото",
-	[Key.galleryAlbums]: "альбомов",
-	[Key.galleryNoAlbums]: "Пока нет альбомов",
-	[Key.galleryBackToAlbums]: "Вернуться к альбомам",
-	[Key.galleryEnterAlbum]: "Открыть альбом",
 	[Key.searchAlbums]: "Поиск альбомов...",
 
 	// Защита паролем
@@ -525,15 +411,7 @@ export const ru: Translation = {
 	[Key.passwordPlaceholder]: "Введите пароль",
 	[Key.passwordSubmit]: "Разблокировать",
 	[Key.passwordError]: "Неверный пароль, попробуйте снова.",
-	[Key.passwordProtectedRss]:
-		"Эта статья зашифрована. Пожалуйста, посетите сайт для просмотра.",
 
-	// Фоновый видеоплеер
-	[Key.videoPlay]: "Воспроизвести фоновое видео",
-	[Key.videoPause]: "Пауза фонового видео",
-	[Key.videoPrev]: "Предыдущее видео",
-	[Key.videoNext]: "Следующее видео",
-	[Key.videoLoadError]: "Не удалось загрузить видео",
 
 	// Чтение без отвлечений
 	[Key.immersiveReading]: "Чтение без отвлечений",

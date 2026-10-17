@@ -7,6 +7,7 @@ export const en: Translation = {
 	[Key.archive]: "Archive",
 	[Key.search]: "Search",
 	[Key.searchNoResults]: "No results found.",
+	[Key.searchError]: "Search is unavailable. Please try again.",
 	[Key.searchTypeSomething]: "Type something to search...",
 	[Key.searchLoading]: "Searching...",
 	[Key.searchSummary]: "Summary",
@@ -16,10 +17,6 @@ export const en: Translation = {
 
 	// Navbar menu groups
 	[Key.navArticles]: "Articles",
-	[Key.navSocial]: "Social",
-	[Key.navMine]: "Mine",
-	[Key.navAbout]: "About",
-	[Key.navLinks]: "Links",
 	[Key.all]: "All",
 
 	[Key.tags]: "Tags",
@@ -31,10 +28,7 @@ export const en: Translation = {
 	[Key.postList]: "Post List",
 	[Key.tableOfContents]: "Table of Contents",
 	[Key.tocEmpty]: "No table of contents on this page",
-	[Key.music]: "Music",
 	[Key.dynamic]: "Moments",
-	[Key.latestDynamics]: "Latest Moments",
-	[Key.moreDynamics]: "More moments",
 	[Key.dynamicDescription]: "Short thoughts and everyday moments.",
 	[Key.dynamicEmpty]: "No moments have been posted yet",
 	[Key.dynamicSearch]: "Search moments...",
@@ -51,24 +45,6 @@ export const en: Translation = {
 	[Key.dynamicNextImage]: "Next image",
 	[Key.dynamicViewImage]: "View image {index}",
 	[Key.dynamicSelectImage]: "Select image {index}",
-	[Key.musicNoPlaying]: "No playing",
-	[Key.musicLyrics]: "Lyrics",
-	[Key.musicVolume]: "Volume",
-	[Key.musicPlayMode]: "Switch Play Mode",
-	[Key.musicPrev]: "Previous",
-	[Key.musicNext]: "Next",
-	[Key.musicPlaylist]: "Playlist",
-	[Key.musicNoLyrics]: "No lyrics available",
-	[Key.musicLoadingLyrics]: "Loading lyrics...",
-	[Key.musicFailedLyrics]: "Failed to load lyrics",
-	[Key.musicNoSongs]: "No songs",
-	[Key.musicError]: "Player Error",
-	[Key.musicPlay]: "Play",
-	[Key.musicPause]: "Pause",
-	[Key.musicProgress]: "Playback Progress",
-	[Key.musicCover]: "Cover",
-	[Key.musicNoCover]: "No cover available",
-	[Key.musicAudioPlayer]: "Audio Player",
 
 	// Announcement
 	[Key.announcement]: "Announcement",
@@ -78,18 +54,6 @@ export const en: Translation = {
 	[Key.commentSection]: "Comments",
 	[Key.commentSubtitle]: "Share your thoughts and discuss with everyone",
 	[Key.commentNotConfigured]: "Comment system not configured",
-	[Key.guestbookCommentHint]:
-		"You have not enabled the comment system in the configuration file yet. After enabling it, visitors will be able to leave messages here",
-	[Key.friends]: "Friends",
-	[Key.friendsDescription]:
-		"Here are my friends, welcome to visit and communicate with each other",
-	[Key.searchFriends]: "Search friends...",
-	[Key.friendsEmpty]: "No friends yet.",
-	[Key.booknav]: "Bookmark Nav",
-	[Key.booknavDescription]:
-		"A curated collection of useful sites, organized by category.",
-	[Key.searchBooknav]: "Search bookmarks...",
-	[Key.booknavEmpty]: "No bookmarks yet.",
 
 	// Project showcase
 	[Key.projects]: "Projects",
@@ -102,9 +66,6 @@ export const en: Translation = {
 	[Key.projectStatusDeveloping]: "In Development",
 	[Key.projectStatusPublished]: "Published",
 	[Key.projectStatusArchived]: "Archived",
-	[Key.guestbook]: "Guestbook",
-	[Key.guestbookDescription]:
-		"Welcome to leave your mark here, share your thoughts and suggestions",
 	[Key.untitled]: "Untitled",
 	[Key.uncategorized]: "Uncategorized",
 	[Key.noTags]: "No Tags",
@@ -314,37 +275,6 @@ export const en: Translation = {
 		"Sorry, the page you visited does not exist or has been moved.",
 	[Key.backToHome]: "Back to Home",
 
-	// RSS Page
-	[Key.rss]: "RSS Feed",
-	[Key.rssDescription]: "Subscribe to get latest updates",
-	[Key.rssSubtitle]:
-		"Subscribe via RSS to get the latest articles and updates imediately",
-	[Key.rssLink]: "RSS Link",
-	[Key.rssCopyToReader]: "Copy link to your RSS reader",
-	[Key.rssCopyLink]: "Copy Link",
-	[Key.rssLatestPosts]: "Latest Posts",
-	[Key.rssWhatIsRSS]: "What is RSS?",
-	[Key.rssWhatIsRSSDescription]:
-		"RSS (Really Simple Syndication) is a standard format for publishing frequently updated content. With RSS, you can:",
-	[Key.rssBenefit1]:
-		"Get the latest website content in time without manually visiting",
-	[Key.rssBenefit2]: "Manage subscriptions to multiple websites in one place",
-	[Key.rssBenefit3]: "Avoid missing important updates and articles",
-	[Key.rssBenefit4]: "Enjoy an ad-free, clean reading experience",
-	[Key.rssHowToUse]:
-		"It is recommended to use Feedly, Inoreader or other RSS readers to subscribe to this site.",
-	[Key.rssCopied]: "RSS link copied to clipboard!",
-	[Key.rssCopyFailed]: "Copy failed, please copy the link manually",
-
-	// Atom Page
-	[Key.atom]: "Atom Feed",
-	[Key.atomDescription]: "Subscribe to get latest updates",
-	[Key.atomSubtitle]:
-		"Subscribe via Atom to get the latest articles and updates immediately",
-	[Key.atomLink]: "Atom Link",
-	[Key.atomCopyToReader]: "Copy link to your Atom reader",
-	[Key.atomCopied]: "Atom link copied to clipboard!",
-
 	// Last Modified Time Card
 	[Key.lastModifiedPrefix]: "Last updated on ",
 	[Key.lastModifiedOutdated]: "Some content may be outdated",
@@ -420,24 +350,6 @@ export const en: Translation = {
 	[Key.postListLayoutList]: "List",
 	[Key.postListLayoutGrid]: "Grid",
 
-	// Sponsor Page
-	[Key.sponsor]: "Sponsor",
-	[Key.sponsorTitle]: "Support Me",
-	[Key.sponsorDescription]:
-		"If my content has been helpful to you, welcome to sponsor me through the following methods. Your support is the driving force for my continued creation!",
-	[Key.sponsorMethods]: "Payment Methods",
-	[Key.sponsorList]: "Sponsors",
-	[Key.sponsorEmpty]: "No sponsors yet",
-	[Key.sponsorAmount]: "Amount",
-	[Key.sponsorDate]: "Date",
-	[Key.sponsorMessage]: "Message",
-	[Key.sponsorAnonymous]: "Anonymous",
-	[Key.scanToSponsor]: "Scan to Sponsor",
-	[Key.sponsorGoTo]: "Go to Sponsor",
-	[Key.sponsorButton]: "Support & Share",
-	[Key.sponsorButtonText]:
-		"If this article helped you, please share or support!",
-
 	[Key.shareOnSocial]: "Share Article",
 	[Key.shareOnSocialDescription]:
 		"If this article helped you, please share it with others!",
@@ -449,25 +361,9 @@ export const en: Translation = {
 	[Key.siteStatsCategoryCount]: "Categories",
 	[Key.siteStatsTagCount]: "Tags",
 	[Key.siteStatsTotalWords]: "Total Words",
-	[Key.siteStatsRunningDays]: "Running Days",
 	[Key.siteStatsLastUpdate]: "Last Activity",
 	[Key.siteStatsDaysAgo]: "{days} days ago",
-	[Key.siteStatsDays]: "{days} days",
 	[Key.today]: "Today",
-
-	// Site Info
-	[Key.siteInfo]: "Site Info",
-	[Key.siteInfoBuildTime]: "Build Time",
-	[Key.siteInfoBuildPlatform]: "Build Platform",
-	[Key.siteInfoBlogVersion]: "Blog Version",
-	[Key.siteInfoAstroVersion]: "Astro Version",
-	[Key.siteInfoNodeVersion]: "Node Version",
-	[Key.siteInfoPnpmVersion]: "pnpm Version",
-	[Key.siteInfoSystem]: "System",
-	[Key.siteInfoExpand]: "Show build info",
-	[Key.siteInfoCollapse]: "Hide build info",
-	[Key.siteInfoDomain]: "Domain",
-	[Key.siteInfoLicense]: "License",
 
 	// Calendar Component
 	[Key.calendarSunday]: "Sun",
@@ -505,15 +401,6 @@ export const en: Translation = {
 	[Key.codeCollapsibleShowLess]: "Show less",
 	[Key.codeCollapsibleExpanded]: "Code block expanded",
 	[Key.codeCollapsibleCollapsed]: "Code block collapsed",
-
-	// Gallery Page
-	[Key.gallery]: "Gallery",
-	[Key.galleryDescription]: "Capturing beautiful moments in life",
-	[Key.galleryPhotos]: "photos",
-	[Key.galleryAlbums]: "albums",
-	[Key.galleryNoAlbums]: "No albums yet",
-	[Key.galleryBackToAlbums]: "Back to albums",
-	[Key.galleryEnterAlbum]: "Enter album",
 	[Key.searchAlbums]: "Search albums...",
 
 	// Password Protection
@@ -524,15 +411,7 @@ export const en: Translation = {
 	[Key.passwordPlaceholder]: "Enter password",
 	[Key.passwordSubmit]: "Unlock",
 	[Key.passwordError]: "Incorrect password, please try again.",
-	[Key.passwordProtectedRss]:
-		"This article is encrypted. Please visit the website to view it.",
 
-	// Background video player
-	[Key.videoPlay]: "Play background video",
-	[Key.videoPause]: "Pause background video",
-	[Key.videoPrev]: "Previous video",
-	[Key.videoNext]: "Next video",
-	[Key.videoLoadError]: "Video failed to load",
 
 	// Immersive Reading
 	[Key.immersiveReading]: "Immersive Reading",

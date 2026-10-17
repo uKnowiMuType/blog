@@ -190,7 +190,6 @@ src/
 │   ├── friendsConfig.ts          # 友链配置
 │   ├── galleryConfig.ts          # 相册配置
 │   ├── licenseConfig.ts          # 许可证配置
-│   ├── musicConfig.ts            # 音乐播放器配置
 │   ├── navBarConfig.ts           # 导航栏配置
 │   ├── pioConfig.ts              # 看板娘配置
 │   ├── mermaidConfig.ts          # Mermaid 图表配置

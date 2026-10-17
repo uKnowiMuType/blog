@@ -54,9 +54,6 @@ export type SiteConfig = {
 		followTheme?: boolean;
 	};
 
-	// 站点开始日期，用于计算运行天数
-	siteStartDate?: string; // 格式: "YYYY-MM-DD"
-
 	// 可选：站点时区，使用 IANA 时区标识，例如 "Asia/Shanghai"、"UTC"
 	timezone?: string;
 
@@ -67,17 +64,15 @@ export type SiteConfig = {
 	}>;
 
 	navbar: {
-		/** 导航栏Logo图标，可选类型：icon库、本地图片、网络图片链接 */
+		/** 导航栏、分享海报和结构化数据使用的站点 Logo */
 		logo?: {
 			type: "icon" | "image" | "url";
 			value: string; // icon名、本地图片路径或网络图片url
 			valueDark?: string; // 暗色模式下的图片，仅 image / url 类型生效，不设置则亮暗色共用 value
 			alt?: string; // 图片alt文本
 		};
-		title?: string; // 导航栏标题，如果不设置则使用 title
 		widthFull?: boolean; // 导航栏是否占满屏幕宽度
 		menuAlign?: "left" | "center"; // 导航菜单对齐方式（仅桌面端菜单）
-		followTheme?: boolean; // 导航栏图标和标题是否跟随主题色
 		// 导航栏模式：static（不固定，随页面滚动消失）/ fixed（固定在顶部常显）/ dynamic（固定在顶部，下滑隐藏、轻微上滑显示）
 		navbarMode?: NavbarMode;
 		/** @deprecated 由 navbarMode 取代；true→fixed，false→static */
@@ -86,14 +81,9 @@ export type SiteConfig = {
 
 	// 页面开关配置
 	pages: {
-		booknav: boolean; // 书签导航页面开关
-		friends: boolean; // 友链页面开关
-		sponsor: boolean; // 打赏页面开关
-		guestbook: boolean; // 留言板页面开关
 		bangumi: boolean;
 		vndb: boolean;
 		mal: boolean; // MyAnimeList 页面开关
-		gallery: boolean; // 相册页面开关
 		bilibili: boolean; // 哔哩哔哩追番页面开关
 		dynamic: boolean; // 动态页面开关
 		projects: boolean; // 项目展示页开关
@@ -244,15 +234,5 @@ export type SiteConfig = {
 		 * 仅影响匹配域名的图片标签，不影响其他链接的 referrer 行为
 		 */
 		noReferrerDomains?: string[];
-	};
-
-	// 订阅 (RSS / Atom) 配置
-	feed?: {
-		/**
-		 * 订阅条目内容模式：
-		 * - "full": 包含文章正文全文（默认）
-		 * - "summary": 仅包含文章摘要/描述，不含正文
-		 */
-		contentMode?: "full" | "summary";
 	};
 };

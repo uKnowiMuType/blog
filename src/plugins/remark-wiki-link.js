@@ -44,7 +44,7 @@ function normalizeContentPath(value) {
 	return withoutPrefix.length > 0 ? withoutPrefix.join("/") : "";
 }
 
-function createPostUrl(contentPath) {
+function createPostUrl(contentPath, base = "/") {
 	const segments = contentPath.split("/");
 
 	if (segments.at(-1)?.toLowerCase() === "index") {
@@ -55,7 +55,7 @@ function createPostUrl(contentPath) {
 		.map((segment) => encodeURIComponent(segment))
 		.join("/");
 
-	return `/posts/${encodedPath ? `${encodedPath}/` : ""}`;
+	return `${base.replace(/\/$/, "")}/posts/${encodedPath ? `${encodedPath}/` : ""}`;
 }
 
 /**
@@ -78,7 +78,13 @@ function toPostId(meta) {
 	const declaredSlug =
 		typeof meta.data.slug === "string" ? meta.data.slug.trim() : "";
 
-	return declaredSlug || toContentPath(meta.filePath);
+	return (
+		declaredSlug ||
+		toContentPath(meta.filePath)
+			.split("/")
+			.map((segment) => slug(segment))
+			.join("/")
+	);
 }
 
 function readMetaFile(filePath) {
@@ -369,7 +375,7 @@ function createText(value) {
 
 function createWikiLinkCard(parsed, context) {
 	const meta = readPostMeta(parsed.contentPath);
-	if (!meta) {
+	if (!meta || (!context.includeDrafts && meta.data.draft === true)) {
 		return null;
 	}
 
@@ -445,13 +451,13 @@ function createWikiLinkCard(parsed, context) {
 		"a",
 		{
 			class: "card-wiki-link no-styling",
-			href: createPostUrl(resolvedPath),
+			href: createPostUrl(resolvedPath, context.base),
 		},
 		children,
 	);
 }
 
-function createWikiLink(value) {
+function createWikiLink(value, context) {
 	const parsed = parseWikiLinkValue(value);
 	if (!parsed) {
 		return null;
@@ -475,9 +481,12 @@ function createWikiLink(value) {
 	}
 
 	const pageUrl = parsed.contentPath
-		? createPostUrl(meta ? toPostId(meta) : parsed.contentPath)
+		? createPostUrl(meta ? toPostId(meta) : parsed.contentPath, context.base)
 		: "";
 	const url = `${pageUrl}${parsed.heading ? `#${slug(parsed.heading)}` : ""}`;
+	if (!context.includeDrafts && meta?.data.draft === true) {
+		return createText(text);
+	}
 
 	return {
 		type: "link",
@@ -486,7 +495,7 @@ function createWikiLink(value) {
 	};
 }
 
-function replaceWikiLinks(value) {
+function replaceWikiLinks(value, context) {
 	const children = [];
 	let cursor = 0;
 	let changed = false;
@@ -496,7 +505,7 @@ function replaceWikiLinks(value) {
 			continue;
 		}
 
-		const link = createWikiLink(match[1]);
+		const link = createWikiLink(match[1], context);
 		if (!link) {
 			continue;
 		}
@@ -559,7 +568,7 @@ function transformNode(node, context) {
 		}
 
 		if (child.type === "text") {
-			const replacement = replaceWikiLinks(child.value);
+			const replacement = replaceWikiLinks(child.value, context);
 			if (replacement) {
 				node.children.splice(index, 1, ...replacement);
 				index += replacement.length - 1;
@@ -591,10 +600,12 @@ function transformNode(node, context) {
  * post's `entry.id` rather than from the link text, so a bare file name
  * still produces the post's real URL.
  */
-export function remarkWikiLink() {
+export function remarkWikiLink({ base = "/", includeDrafts = true } = {}) {
 	return (tree, file) => {
 		const context = {
 			currentDir: file?.path ? path.dirname(file.path) : null,
+			base,
+			includeDrafts,
 		};
 		transformNode(tree, context);
 	};

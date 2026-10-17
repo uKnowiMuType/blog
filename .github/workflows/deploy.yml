@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   workflow_dispatch:
 
 # Pages 部署需要的权限
@@ -26,7 +26,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '24'
           
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
@@ -35,7 +35,16 @@ jobs:
           run_install: false
           
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: pnpm install --frozen-lockfile
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Check site
+        run: pnpm check && pnpm type-check
+
+      - name: Run regression tests
+        run: pnpm exec tsx --test src/components/layout/WallpaperSection.test.mjs src/plugins/remark-display-math.test.mjs src/plugins/remark-wiki-link.test.mjs src/utils/search-documents.test.ts
       
       - name: Build site
         run: pnpm run build
@@ -57,4 +66,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

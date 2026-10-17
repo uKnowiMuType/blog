@@ -2,6 +2,7 @@
 import Comment from "@/components/comment/index.astro";
 import { commentConfig, dynamicConfig, siteConfig } from "@/config";
 import Layout from "@/layouts/Layout.astro";
+import { url } from "@/utils/url-utils";
 import "@/styles/pages/dynamic-comments.css";
 
 if (
@@ -10,7 +11,7 @@ if (
 	!commentConfig.type ||
 	commentConfig.type === "none"
 ) {
-	return Astro.redirect("/404/");
+	return Astro.redirect(url("/404/"));
 }
 ---
 

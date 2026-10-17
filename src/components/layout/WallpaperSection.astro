@@ -1,7 +1,6 @@
 ---
 import ImageWrapper from "@/components/common/ImageWrapper.astro";
 import ScrollDownIndicator from "@/components/controls/ScrollDownIndicator.astro";
-import BackgroundPlayer from "@/components/features/BackgroundPlayer.astro";
 import BannerHomeTextOverlay from "@/components/layout/BannerHomeTextOverlay.astro";
 import BannerPostMetaOverlay from "@/components/layout/BannerPostMetaOverlay.astro";
 import { backgroundWallpaper } from "@/config";
@@ -193,6 +192,8 @@ const wallpaperPosition = state.isFullscreenMode
         (function initBannerCarousel() {
             var container = document.getElementById('banner-images-container');
             if (!container) return;
+            // 与 Tailwind lg: 的 64rem 媒体查询一致；浏览器默认字号不一定为 16px。
+            var lgQuery = window.matchMedia('(min-width: 64rem)');
 
             var WALLPAPER_BANNER = 'banner';
             var interval = parseInt(container.dataset.carouselInterval || '5000', 10);
@@ -269,7 +270,7 @@ const wallpaperPosition = state.isFullscreenMode
             // 获取当前设备可见的 slide-item
             function getVisibleSlides() {
                 var all = container.querySelectorAll('.slide-item');
-                var isLg = window.innerWidth >= 1024;
+                var isLg = lgQuery.matches;
                 var visible = [];
                 for (var i = 0; i < all.length; i++) {
                     var el = all[i];
@@ -430,24 +431,21 @@ const wallpaperPosition = state.isFullscreenMode
                 });
             }
 
-            // 断点跨过 1024px 时，另一侧那组还没有实例化过的 active，需要补上
-            if (window.matchMedia) {
-                var lgQuery = window.matchMedia('(min-width: 1024px)');
-                var onBreakpointChange = function () {
-                    var s = getVisibleSlides();
-                    if (!s.length) return;
-                    var hasActive = false;
-                    for (var i = 0; i < s.length; i++) {
-                        if (s[i].classList.contains('active')) { hasActive = true; break; }
-                    }
-                    if (!hasActive) s[0].classList.add('active');
-                    var idx = getCurrentIndex(s);
-                    materialize(s[idx], false);
-                    if (isCarouselEnabled()) materializeAhead(s, idx);
-                };
-                if (lgQuery.addEventListener) lgQuery.addEventListener('change', onBreakpointChange);
-                else if (lgQuery.addListener) lgQuery.addListener(onBreakpointChange);
-            }
+            // 使用同一个媒体查询监听窗口和缩放变化，及时加载新显示的图片组。
+            var onBreakpointChange = function () {
+                var s = getVisibleSlides();
+                if (!s.length) return;
+                var hasActive = false;
+                for (var i = 0; i < s.length; i++) {
+                    if (s[i].classList.contains('active')) { hasActive = true; break; }
+                }
+                if (!hasActive) s[0].classList.add('active');
+                var idx = getCurrentIndex(s);
+                materialize(s[idx], false);
+                if (isCarouselEnabled()) materializeAhead(s, idx);
+            };
+            if (lgQuery.addEventListener) lgQuery.addEventListener('change', onBreakpointChange);
+            else if (lgQuery.addListener) lgQuery.addListener(onBreakpointChange);
 
             // 空闲时预取下一张（轮播关掉时其余图片永远不会显示，一张都不下）
             if (isCarouselEnabled()) {
@@ -473,6 +471,7 @@ const wallpaperPosition = state.isFullscreenMode
         (function initBannerSingle() {
             var container = document.getElementById('banner-images-container');
             if (!container) return;
+            var lgQuery = window.matchMedia('(min-width: 64rem)');
 
             function materialize(slot, high) {
                 var tpl = slot.querySelector('template');
@@ -509,7 +508,7 @@ const wallpaperPosition = state.isFullscreenMode
 
             function sync() {
                 var all = container.querySelectorAll('.banner-image-slot');
-                var isLg = window.innerWidth >= 1024;
+                var isLg = lgQuery.matches;
                 for (var i = 0; i < all.length; i++) {
                     var el = all[i];
                     if (isLg && el.classList.contains('lg:hidden')) continue;
@@ -520,19 +519,12 @@ const wallpaperPosition = state.isFullscreenMode
 
             sync();
 
-            if (window.matchMedia) {
-                var lgQuery = window.matchMedia('(min-width: 1024px)');
-                if (lgQuery.addEventListener) lgQuery.addEventListener('change', sync);
-                else if (lgQuery.addListener) lgQuery.addListener(sync);
-            }
+            if (lgQuery.addEventListener) lgQuery.addEventListener('change', sync);
+            else if (lgQuery.addListener) lgQuery.addListener(sync);
         })();
     </script>
     )}
     
-    {backgroundWallpaper.playerEnable && typeof backgroundWallpaper.src === "object" && !Array.isArray(backgroundWallpaper.src) && backgroundWallpaper.src.playerUrl && (
-        <BackgroundPlayer playerUrl={backgroundWallpaper.src.playerUrl} playerMode={backgroundWallpaper.common?.playerMode ?? "order"} />
-    )}
-
     <div id="banner-dim-container" class="absolute inset-0 z-10 pointer-events-none">
         {state.showBannerDim && <div class="banner-dim-overlay absolute inset-0" style={`background: rgba(0, 0, 0, ${state.dimOpacity})`}></div>}
     </div>

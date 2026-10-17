@@ -13,12 +13,13 @@ import type {
 } from "@/types/bangumi";
 import { formatDateI18n } from "@/utils/date-utils";
 import { filterNsfw, isBangumiNsfw } from "@/utils/nsfw-utils";
+import { url } from "@/utils/url-utils";
 
 //参考：霞葉 https://kasuha.com/posts/fuwari-enhance-ep2/
 
 // 检查页面是否启用
 if (!siteConfig.pages.bangumi) {
-	return Astro.redirect("/404/");
+	return Astro.redirect(url("/404/"));
 }
 
 // 获取构建时间

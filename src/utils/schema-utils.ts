@@ -53,7 +53,7 @@ export function buildBreadcrumbList(
 	};
 }
 
-// sameAs 只保留绝对 http(s) 外链（去掉 mailto: 与 /rss/ 等相对/非外链）
+// sameAs 只保留绝对 http(s) 外链（去掉 mailto: 与站内相对路径等非外链）
 function filterAbsoluteLinks(links: ProfileConfig["links"]): string[] {
 	return (links ?? [])
 		.map((l) => l?.url)

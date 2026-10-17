@@ -2,11 +2,9 @@
 
 ## 动态组件
 
-- `widget/Dynamic.astro`：显示最新动态的侧边栏组件。
 - `pages/dynamic/DynamicFeed.svelte`：负责动态 JSON 加载、搜索、年份筛选和分页。
 - `pages/dynamic/DynamicGallery.astro`：动态图片网格、轮播和灯箱。
 - `pages/dynamic/DynamicInlineComments.astro`：单条动态的按需评论区。
-- `pages/dynamic/DynamicItem.astro`：动态条目的服务端渲染组件。
 - `pages/dynamic/DynamicItemTemplate.astro`：动态条目的客户端渲染模板。
 
 Firefly 项目中所有可复用组件的集中管理。组件按照功能和职责进行分类，提供清晰的架构和易于维护的代码组织。
@@ -42,12 +40,9 @@ Firefly 项目中所有可复用组件的集中管理。组件按照功能和职
 - `ArchivePanel.astro` - 归档面板组件（服务端渲染 + 客户端筛选/折叠）
 
 **交互组件**
-- `DisplaySettings.svelte` - 显示设置组件
 - `DisplaySettingsIntegrated.svelte` - 集成显示设置组件
-- `LayoutSwitchButton.svelte` - 布局切换按钮
 - `LightDarkSwitch.svelte` - 主题切换组件
 - `Search.svelte` - 搜索功能组件
-- `WallpaperSwitch.svelte` - 壁纸模式切换组件
 
 ### 🔧 common/ - 公共可复用组件
 
@@ -57,7 +52,7 @@ Firefly 项目中所有可复用组件的集中管理。组件按照功能和职
 - `ButtonLink.astro` - 链接按钮
 - `ButtonTag.astro` - 标签按钮
 - `DropdownItem.astro` / `.svelte` - 下拉选项
-- `DropdownPanel.astro` / `.svelte` - 下拉面板容器
+- `DropdownPanel.astro` - 下拉面板容器
 - `FloatingButton.astro` - 悬浮按钮基础组件
 - `Icon.svelte` - 图标组件（带加载状态和错误处理）
 - `WidgetLayout.astro` - 小部件布局容器
@@ -87,12 +82,9 @@ Firefly 项目中所有可复用组件的集中管理。组件按照功能和职
 - `Announcement.astro` - 公告组件
 - `Calendar.astro` - 日历组件
 - `Categories.astro` - 分类组件
-- `Music.astro` - 音乐播放器小部件
 - `Profile.astro` - 个人信息/社交链接小部件
 - `SidebarTOC.astro` - 侧边栏目录组件
-- `SiteInfo.astro` - 站点信息组件
 - `SiteStats.astro` - 站点统计组件
-- `SpineModel.astro` - Spine 看板娘组件
 - `Tags.astro` - 标签组件
 
 ### ✨ features/ - 全局功能特效组件
@@ -103,13 +95,11 @@ Firefly 项目中所有可复用组件的集中管理。组件按照功能和职
 - `FancyboxManager.astro` - Fancybox 图片查看器管理
 - `FontSetup.astro` - 字体加载和管理（基于 Astro Font API）
 - `KatexManager.astro` - Katex 数学公式渲染管理
-- `MusicManager.astro` - 全局音乐播放管理器（单例，管理唯一 audio 元素和播放状态，通过 CustomEvent 同步所有 MusicPlayer 视图实例）
 
 **功能组件**
 - `EncryptedContent.astro` - 加密内容组件
 - `EncryptedPost.astro` - 加密文章组件
 - `Live2DWidget.astro` - Live2D 看板娘组件
-- `MusicPlayer.astro` - 音乐播放器 UI 视图控制器（纯 UI，委托 MusicManager 进行播放控制）
 - `SakuraEffect.astro` - 樱花飘落特效
 - `SpineModel.astro` - Spine 看板娘组件
 - `TypewriterText.astro` - 打字机动画效果
@@ -124,10 +114,6 @@ Firefly 项目中所有可复用组件的集中管理。组件按照功能和职
 - `BangumiGrid.svelte` - 番组网格布局组件
 - `BangumiSection.svelte` - 番组分类展示组件
 - `Card.svelte` - 番组卡片组件
-
-**pages/gallery/** - 相册页面组件
-- `AlbumCard.astro` - 相册卡片组件
-- `PhotoCard.astro` - 照片卡片组件
 
 ### 💬 comment/ - 评论系统组件
 

@@ -15,10 +15,11 @@ import {
 	type MalListKind,
 } from "@/utils/mal-utils";
 import { filterNsfw, isMalNsfw } from "@/utils/nsfw-utils";
+import { url } from "@/utils/url-utils";
 
 // 检查页面是否启用
 if (!siteConfig.pages.mal) {
-	return Astro.redirect("/404/");
+	return Astro.redirect(url("/404/"));
 }
 
 // 获取构建时间

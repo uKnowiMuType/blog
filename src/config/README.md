@@ -18,17 +18,13 @@ src/config/
 ├── effectsConfig.ts          # 动画特效配置（樱花等）
 ├── expressiveCodeConfig.ts   # 代码高亮配置
 ├── fontConfig.ts             # 字体配置
-├── friendsConfig.ts          # 友链配置
-├── galleryConfig.ts          # 相册配置
 ├── licenseConfig.ts          # 许可证配置
-├── musicConfig.ts            # 音乐播放器配置
 ├── navBarConfig.ts           # 导航栏配置（含 LinkPresets 链接预设）
 ├── pioConfig.ts              # 看板娘配置（Spine、Live2D）
 ├── mermaidConfig.ts          # Mermaid 图表配置
 ├── plantumlConfig.ts         # PlantUML 图表配置
 ├── profileConfig.ts          # 用户资料配置
 ├── sidebarConfig.ts          # 侧边栏布局配置
-├── sponsorConfig.ts          # 打赏配置
 └── README.md                 # 本文件
 ```
 
@@ -60,16 +56,12 @@ import { profileConfig } from "@/config/profileConfig";
 | `effectsConfig.ts` | 动画特效配置（樱花数量、速度、尺寸等） |
 | `expressiveCodeConfig.ts` | 代码高亮配置（亮色/暗色主题、折叠、语言徽章） |
 | `fontConfig.ts` | 字体配置（字体列表、回退、预加载） |
-| `friendsConfig.ts` | 友链配置（友链列表、页面设置） |
-| `galleryConfig.ts` | 相册配置（相册列表、瀑布流列宽） |
 | `licenseConfig.ts` | 许可证配置（CC 协议等） |
-| `musicConfig.ts` | 音乐播放器配置（Meting API / 本地音乐、导航栏和侧边栏开关） |
 | `navBarConfig.ts` | 导航栏配置（动态链接、LinkPresets 链接预设、搜索配置） |
 | `pioConfig.ts` | 看板娘配置（Spine 模型、Live2D 模型） |
 | `plantumlConfig.ts` | PlantUML 图表渲染配置 |
 | `profileConfig.ts` | 用户资料配置（头像、姓名、社交链接） |
 | `sidebarConfig.ts` | 侧边栏布局配置（左侧/右侧/移动端组件列表） |
-| `sponsorConfig.ts` | 打赏配置（打赏方式、打赏者列表） |
 
 ## 📝 说明
 

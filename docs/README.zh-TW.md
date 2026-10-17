@@ -194,7 +194,6 @@ src/
 │   ├── friendsConfig.ts          # 友鏈配置
 │   ├── galleryConfig.ts          # 相簿配置
 │   ├── licenseConfig.ts          # 授權配置
-│   ├── musicConfig.ts            # 音樂播放器配置
 │   ├── navBarConfig.ts           # 導覽列配置
 │   ├── pioConfig.ts              # 看板娘配置
 │   ├── mermaidConfig.ts          # Mermaid 圖表配置

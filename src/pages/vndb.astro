@@ -12,6 +12,7 @@ import "@/styles/pages/media-grid.css";
 import type { VndbUlistEntry } from "@/types/vndb";
 import { formatDateI18n } from "@/utils/date-utils";
 import { isVndbNsfw } from "@/utils/nsfw-utils";
+import { url } from "@/utils/url-utils";
 import {
 	buildVndbTabs,
 	fetchVndbUlist,
@@ -20,7 +21,7 @@ import {
 
 // 检查页面是否启用
 if (!siteConfig.pages.vndb) {
-	return Astro.redirect("/404/");
+	return Astro.redirect(url("/404/"));
 }
 
 const buildTime = formatDateI18n(new Date());

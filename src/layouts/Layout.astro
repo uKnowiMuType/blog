@@ -7,8 +7,6 @@ import CodeGroupManager from "@components/features/CodeGroupManager.astro";
 import FancyboxManager from "@components/features/FancyboxManager.astro";
 import FontSetup from "@components/features/FontSetup.astro";
 import GithubCardManager from "@components/features/GithubCardManager.astro";
-import MusicManager from "@components/features/MusicManager.astro";
-import MusicPlayerView from "@components/features/MusicPlayerView.astro";
 import SakuraEffect from "@components/features/SakuraEffect.astro";
 import WavesEffect from "@components/features/WavesEffect.astro";
 import ConfigCarrier from "@components/layout/ConfigCarrier.astro";
@@ -18,7 +16,6 @@ import {
 	backgroundWallpaper,
 	displaySettingsConfig,
 	expressiveCodeConfig,
-	musicPlayerConfig,
 	navbarMode,
 	profileConfig,
 	siteConfig,
@@ -137,7 +134,7 @@ let ogImageWidth: number | undefined;
 let ogImageHeight: number | undefined;
 const isGeneratedOg = siteConfig.post.generateOgImages && postSlug;
 if (isGeneratedOg) {
-	ogImageUrl = new URL(`/og/${postSlug}.png`, Astro.site).toString();
+	ogImageUrl = new URL(url(`/og/${postSlug}.png`), Astro.site).toString();
 	ogImageWidth = 1200;
 	ogImageHeight = 630;
 } else if (postCoverImage) {
@@ -490,20 +487,6 @@ const ogImageAlt = propsOgImageAlt ?? pageTitle;
 
     <slot name="head" />
 
-    <link
-      rel="alternate"
-      type="application/rss+xml"
-      title={profileConfig.name}
-      href={`${Astro.site}rss.xml`}
-    />
-
-    <link
-      rel="alternate"
-      type="application/atom+xml"
-      title={profileConfig.name}
-      href={`${Astro.site}atom.xml`}
-    />
-
     <!-- Font Setup (Astro Font API) -->
     <FontSetup />
   </head>
@@ -554,14 +537,7 @@ const ogImageAlt = propsOgImageAlt ?? pageTitle;
     <!-- 页面顶部渐变高光效果 - 只在full和semifull模式下显示 -->
     {shouldShowTopHighlight && <div class="top-gradient-highlight" />}
     <ConfigCarrier />
-    <MusicManager />
     <slot />
-
-    <!-- 播放器视图脚本：必须在 <slot /> 之后（解析到它时所有 widget 的 DOM 要已存在），
-         且在 MusicManager 之后（swup 重跑按文档顺序，window.__fireflyMusic 得先就位） -->
-    {(musicPlayerConfig.showInNavbar || musicPlayerConfig.showInSidebar !== false) && (
-      <MusicPlayerView />
-    )}
 
 
     <!-- Sakura Effect -->

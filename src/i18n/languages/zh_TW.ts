@@ -7,6 +7,7 @@ export const zh_TW: Translation = {
 	[Key.archive]: "歸檔",
 	[Key.search]: "搜尋",
 	[Key.searchNoResults]: "找不到相關結果。",
+	[Key.searchError]: "搜尋暫時無法使用，請重試。",
 	[Key.searchTypeSomething]: "請輸入搜尋關鍵字。",
 	[Key.searchLoading]: "搜尋中...",
 	[Key.searchSummary]: "摘要",
@@ -16,10 +17,6 @@ export const zh_TW: Translation = {
 
 	// 導覽列選單分組
 	[Key.navArticles]: "文章",
-	[Key.navSocial]: "社交",
-	[Key.navMine]: "我的",
-	[Key.navAbout]: "關於",
-	[Key.navLinks]: "連結",
 	[Key.all]: "全部",
 
 	[Key.tags]: "標籤",
@@ -31,10 +28,7 @@ export const zh_TW: Translation = {
 	[Key.postList]: "文章列表",
 	[Key.tableOfContents]: "文章目錄",
 	[Key.tocEmpty]: "目前頁面沒有目錄",
-	[Key.music]: "音樂",
 	[Key.dynamic]: "動態",
-	[Key.latestDynamics]: "最新動態",
-	[Key.moreDynamics]: "更多動態",
 	[Key.dynamicDescription]: "隨手記下此刻的想法與日常。",
 	[Key.dynamicEmpty]: "還沒有發佈動態",
 	[Key.dynamicSearch]: "搜尋動態...",
@@ -51,24 +45,6 @@ export const zh_TW: Translation = {
 	[Key.dynamicNextImage]: "下一張圖片",
 	[Key.dynamicViewImage]: "查看圖片 {index}",
 	[Key.dynamicSelectImage]: "切換到圖片 {index}",
-	[Key.musicNoPlaying]: "暫未播放",
-	[Key.musicLyrics]: "歌詞",
-	[Key.musicVolume]: "音量",
-	[Key.musicPlayMode]: "切換播放模式",
-	[Key.musicPrev]: "上一首",
-	[Key.musicNext]: "下一首",
-	[Key.musicPlaylist]: "列表",
-	[Key.musicNoLyrics]: "暫無歌詞",
-	[Key.musicLoadingLyrics]: "正在加載歌詞...",
-	[Key.musicFailedLyrics]: "歌詞加載失敗",
-	[Key.musicNoSongs]: "暫無歌曲",
-	[Key.musicError]: "播放器錯誤",
-	[Key.musicPlay]: "播放",
-	[Key.musicPause]: "暫停",
-	[Key.musicProgress]: "播放進度",
-	[Key.musicCover]: "封面",
-	[Key.musicNoCover]: "暫無封面",
-	[Key.musicAudioPlayer]: "音頻播放器",
 
 	// 公告欄
 	[Key.announcement]: "公告",
@@ -78,16 +54,6 @@ export const zh_TW: Translation = {
 	[Key.commentSection]: "評論區",
 	[Key.commentSubtitle]: "分享你的想法，與大家交流討論",
 	[Key.commentNotConfigured]: "評論系統暫未配置",
-	[Key.guestbookCommentHint]:
-		"您還未在配置文件中啟用評論系統，啟用後訪客才可在此留言",
-	[Key.friends]: "友鏈",
-	[Key.friendsDescription]: "這裡是我的朋友們，歡迎互相訪問交流",
-	[Key.searchFriends]: "搜尋友鏈...",
-	[Key.friendsEmpty]: "暫無友情連結",
-	[Key.booknav]: "書籤導航",
-	[Key.booknavDescription]: "收藏一些好用的網站，按分類整理",
-	[Key.searchBooknav]: "搜尋書籤...",
-	[Key.booknavEmpty]: "暫無書籤",
 
 	// 專案展示頁
 	[Key.projects]: "專案",
@@ -100,8 +66,6 @@ export const zh_TW: Translation = {
 	[Key.projectStatusDeveloping]: "開發中",
 	[Key.projectStatusPublished]: "已發佈",
 	[Key.projectStatusArchived]: "已封存",
-	[Key.guestbook]: "留言",
-	[Key.guestbookDescription]: "歡迎在這裡留下你的足跡，分享你的想法和建議",
 	[Key.untitled]: "無標題",
 	[Key.uncategorized]: "未分類",
 	[Key.noTags]: "無標籤",
@@ -310,33 +274,6 @@ export const zh_TW: Translation = {
 	[Key.notFoundDescription]: "抱歉，您訪問的頁面不存在或已被移動。",
 	[Key.backToHome]: "返回首頁",
 
-	// RSS頁面
-	[Key.rss]: "RSS 訂閱",
-	[Key.rssDescription]: "訂閱獲取最新更新",
-	[Key.rssSubtitle]: "通過 RSS 訂閱，第一時間獲取最新文章和動態",
-	[Key.rssLink]: "RSS 鏈接",
-	[Key.rssCopyToReader]: "複製鏈接到你的 RSS 閱讀器",
-	[Key.rssCopyLink]: "複製鏈接",
-	[Key.rssLatestPosts]: "最新文章",
-	[Key.rssWhatIsRSS]: "什麼是 RSS？",
-	[Key.rssWhatIsRSSDescription]:
-		"RSS（Really Simple Syndication）是一種用於發布經常更新內容的標準格式。通過 RSS，你可以：",
-	[Key.rssBenefit1]: "及時獲取網站最新內容，無需手動訪問",
-	[Key.rssBenefit2]: "在一個地方管理多個網站的訂閱",
-	[Key.rssBenefit3]: "避免錯過重要更新和文章",
-	[Key.rssBenefit4]: "享受無廣告的純淨閱讀體驗",
-	[Key.rssHowToUse]: "推薦使用 Feedly、Inoreader 或其他 RSS 閱讀器來訂閱本站。",
-	[Key.rssCopied]: "RSS 鏈接已複製到剪貼板！",
-	[Key.rssCopyFailed]: "複製失敗，請手動複製鏈接",
-
-	// Atom 頁面
-	[Key.atom]: "Atom 訂閱",
-	[Key.atomDescription]: "訂閱獲取最新更新",
-	[Key.atomSubtitle]: "透過 Atom 訂閱，第一時間獲取最新文章和動態",
-	[Key.atomLink]: "Atom 連結",
-	[Key.atomCopyToReader]: "複製連結到你的 Atom 閱讀器",
-	[Key.atomCopied]: "Atom 連結已複製到剪貼簿！",
-
 	//最後編輯時間卡片
 	[Key.lastModifiedPrefix]: "最後更新於 ",
 	[Key.lastModifiedOutdated]: "部分內容可能已過時",
@@ -412,24 +349,6 @@ export const zh_TW: Translation = {
 	[Key.postListLayoutList]: "清單",
 	[Key.postListLayoutGrid]: "網格",
 
-	// 打賞頁面
-	[Key.sponsor]: "打賞",
-	[Key.sponsorTitle]: "打賞支持",
-	[Key.sponsorDescription]:
-		"如果我的內容對你有幫助，歡迎通過以下方式打賞我，你的支持是我持續創作的動力！",
-	[Key.sponsorMethods]: "打賞方式",
-	[Key.sponsorList]: "打賞列表",
-	[Key.sponsorEmpty]: "暫無打賞記錄",
-	[Key.sponsorAmount]: "金額",
-	[Key.sponsorDate]: "日期",
-	[Key.sponsorMessage]: "留言",
-	[Key.sponsorAnonymous]: "匿名",
-	[Key.scanToSponsor]: "掃碼打賞",
-	[Key.sponsorGoTo]: "前往打賞",
-	[Key.sponsorButton]: "支持與分享",
-	[Key.sponsorButtonText]:
-		"如果這篇文章對你有幫助，歡迎分享給更多人或打賞支持！",
-
 	[Key.shareOnSocial]: "文章分享",
 	[Key.shareOnSocialDescription]: "如果這篇文章對你有幫助，歡迎分享給更多人！",
 
@@ -440,25 +359,9 @@ export const zh_TW: Translation = {
 	[Key.siteStatsCategoryCount]: "分類",
 	[Key.siteStatsTagCount]: "標籤",
 	[Key.siteStatsTotalWords]: "總字數",
-	[Key.siteStatsRunningDays]: "運行時長",
 	[Key.siteStatsLastUpdate]: "最後活動",
 	[Key.siteStatsDaysAgo]: "{days} 天前",
-	[Key.siteStatsDays]: "{days} 天",
 	[Key.today]: "今天",
-
-	// 站點資訊
-	[Key.siteInfo]: "站點資訊",
-	[Key.siteInfoBuildTime]: "構建時間",
-	[Key.siteInfoBuildPlatform]: "構建平台",
-	[Key.siteInfoBlogVersion]: "部落格版本",
-	[Key.siteInfoAstroVersion]: "Astro",
-	[Key.siteInfoNodeVersion]: "Node",
-	[Key.siteInfoPnpmVersion]: "pnpm",
-	[Key.siteInfoSystem]: "系統資訊",
-	[Key.siteInfoExpand]: "展開構建資訊",
-	[Key.siteInfoCollapse]: "收起構建資訊",
-	[Key.siteInfoDomain]: "站點域名",
-	[Key.siteInfoLicense]: "文章許可",
 
 	// 日曆組件
 	[Key.calendarSunday]: "日",
@@ -496,15 +399,6 @@ export const zh_TW: Translation = {
 	[Key.codeCollapsibleShowLess]: "收起",
 	[Key.codeCollapsibleExpanded]: "代碼區塊已展開",
 	[Key.codeCollapsibleCollapsed]: "代碼區塊已折疊",
-
-	// 相簿頁面
-	[Key.gallery]: "相簿",
-	[Key.galleryDescription]: "記錄生活中的美好瞬間",
-	[Key.galleryPhotos]: "張照片",
-	[Key.galleryAlbums]: "本相簿",
-	[Key.galleryNoAlbums]: "暫無相簿",
-	[Key.galleryBackToAlbums]: "返回相簿列表",
-	[Key.galleryEnterAlbum]: "進入相簿",
 	[Key.searchAlbums]: "搜尋相簿...",
 
 	// 密碼保護
@@ -514,14 +408,7 @@ export const zh_TW: Translation = {
 	[Key.passwordPlaceholder]: "請輸入密碼",
 	[Key.passwordSubmit]: "解鎖",
 	[Key.passwordError]: "密碼錯誤，請重試。",
-	[Key.passwordProtectedRss]: "本文已加密保護，請訪問網站查看。",
 
-	// 背景影片播放器
-	[Key.videoPlay]: "播放背景影片",
-	[Key.videoPause]: "暫停背景影片",
-	[Key.videoPrev]: "上一個影片",
-	[Key.videoNext]: "下一個影片",
-	[Key.videoLoadError]: "影片載入失敗",
 
 	// 沉浸閱讀
 	[Key.immersiveReading]: "沉浸閱讀",
