@@ -2,7 +2,7 @@
 import { Icon } from "astro-icon/components";
 import DynamicFeed from "@/components/pages/dynamic/DynamicFeed.svelte";
 import DynamicItemTemplate from "@/components/pages/dynamic/DynamicItemTemplate.astro";
-import { commentConfig, dynamicConfig, siteConfig } from "@/config";
+import { dynamicConfig, siteConfig } from "@/config";
 import I18nKey from "@/i18n/i18nKey";
 import { i18n } from "@/i18n/translation";
 import MainGridLayout from "@/layouts/MainGridLayout.astro";
@@ -18,11 +18,6 @@ const title = dynamicConfig.title || i18n(I18nKey.dynamic);
 const description =
 	dynamicConfig.description || i18n(I18nKey.dynamicDescription);
 const itemsPerPage = Math.max(1, dynamicConfig.itemsPerPage ?? 10);
-const showInlineComments = Boolean(
-	dynamicConfig.showComment !== false &&
-		commentConfig.type &&
-		commentConfig.type !== "none",
-);
 const dataUrl = dynamicConfig.apiUrl?.startsWith("http")
 	? dynamicConfig.apiUrl
 	: url(dynamicConfig.apiUrl || "/api/dynamic.json");
@@ -73,7 +68,6 @@ const memos = dynamicConfig.memos;
 				client:load
 				source={dataUrl}
 				{itemsPerPage}
-				showComments={showInlineComments}
 				emptyText={i18n(I18nKey.dynamicEmpty)}
 				noResultsText={i18n(I18nKey.dynamicNoResults)}
 				loadingText={i18n(I18nKey.dynamicLoading)}

@@ -3,7 +3,6 @@ export type DynamicConfig = {
 	description?: string;
 	/** 动态头像和名称的跳转地址，支持站内路径或完整 URL */
 	profileUrl?: string;
-	showComment?: boolean;
 	itemsPerPage?: number;
 	// 动态数据 json 地址，本地默认 "/api/dynamic.json"
 	// 可改为第三方接口地址，如 "https://firefly.cuteleaf.cn/api/dynamic.json"

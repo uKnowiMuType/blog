@@ -4,7 +4,6 @@
 
 - `pages/dynamic/DynamicFeed.svelte`：负责动态 JSON 加载、搜索、年份筛选和分页。
 - `pages/dynamic/DynamicGallery.astro`：动态图片网格、轮播和灯箱。
-- `pages/dynamic/DynamicInlineComments.astro`：单条动态的按需评论区。
 - `pages/dynamic/DynamicItemTemplate.astro`：动态条目的客户端渲染模板。
 
 Firefly 项目中所有可复用组件的集中管理。组件按照功能和职责进行分类，提供清晰的架构和易于维护的代码组织。
@@ -70,9 +69,6 @@ Firefly 项目中所有可复用组件的集中管理。组件按照功能和职
 - `Pagination.astro` - 静态路由分页（Astro 原生）
 
 **列表与筛选组件**
-- `FilterControls.svelte` - 筛选控制组件（胶囊筛选按钮，bangumi/vndb/mal 共用）
-- `TabNav.svelte` - 标签导航组件（支持 URL hash 深链，bangumi/vndb/mal/bilibili 共用）
-- `GridSkeleton.svelte` - 媒体网格加载骨架
 
 ### 🧩 widget/ - 小部件
 
@@ -109,11 +105,6 @@ Firefly 项目中所有可复用组件的集中管理。组件按照功能和职
 特定页面使用的组件，不用于其他页面。
 
 - `AdvancedSearch.svelte` - 高级搜索组件
-
-**pages/bangumi/** - 番组计划页面组件
-- `BangumiGrid.svelte` - 番组网格布局组件
-- `BangumiSection.svelte` - 番组分类展示组件
-- `Card.svelte` - 番组卡片组件
 
 ### 💬 comment/ - 评论系统组件
 

@@ -117,15 +117,13 @@ test("nested lists and quotes support Windows line endings and Chinese text", as
 	);
 });
 
-test("all GAA standalone formulas render without KaTeX errors", async () => {
+test("GAA regression fixtures render without KaTeX errors", async () => {
 	const source = await readFile(
-		new URL("../content/posts/2025_GAA/GAA.md", import.meta.url),
+		new URL("../../tests/fixtures/math/gaa.md", import.meta.url),
 		"utf8",
 	);
 	const expectedBlocks = [...source.matchAll(/^\$\$.+\$\$\s*$/gm)].length;
-	const { byClass } = await render(
-		source.replace(/^---\r?\n[\s\S]*?\r?\n---/, ""),
-	);
+	const { byClass } = await render(source);
 	assert.ok(expectedBlocks > 0);
 	assert.equal(byClass("katex-error").length, 0);
 	assert.equal(byClass("katex-display").length, expectedBlocks);

@@ -30,7 +30,6 @@
 | --- | --- | --- |
 | `E:/webblog/Firefly/src/config/commentConfig.ts` | 当前 `type: "none"`；Giscus 指向 `CuteLeaf/Firefly`，其他评论服务也有示例地址 | 启用评论前，填写自己的服务地址，或整组替换 Giscus 的 `repo`、`repoId`、`categoryId`；Disqus 的 `shortname` 仍是 `firefly`。 |
 | `E:/webblog/Firefly/src/config/dynamicConfig.ts` → `memos` | 当前关闭；`parent: "users/xiaye"`，示例实例地址 | 使用 Memos 数据源时，填写自己的实例和用户标识。 |
-| `E:/webblog/Firefly/src/config/siteConfig.ts` → `bilibili`、`bangumi`、`vndb`、`mal` | 对应页面目前关闭，保留了示例账号和 MAL Client ID | 启用这些页面时换成自己的账号及应用配置。 |
 | `E:/webblog/Firefly/src/content/projects/` | 仍有 Firefly、example-project 示例项目 | 换成自己的论文复现或安全研究项目，或删除不需要的示例。 |
 | `E:/webblog/Firefly/src/content/dynamic/` | 仍有模板演示动态 | 独立“动态”页面仍启用，按需替换内容。 |
 | `E:/webblog/Firefly/src/config/sidebarConfig.ts` → 广告项 | 广告目前关闭，但保留了模板推广链接 | 若启用广告，先换成自己的内容。 |
@@ -67,3 +66,9 @@ Git 远程仓库已是 `https://github.com/uKnowiMuType/blog.git`。头像路径
 `.github/workflows/deploy.yml` 在推送到 `main` 或手动运行时执行：安装锁定的依赖、代码与类型检查、27 项回归测试、完整构建、上传静态产物并部署到 GitHub Pages。运行环境为 Node.js 24、pnpm 11.22.0；Pages 使用 GitHub Actions 构建模式。
 
 本地继续运行 `pnpm dev`，正式部署运行 `pnpm build`；修改完成后提交并推送到 `main` 即会自动更新网站。文章的 `draft` 状态保持不变，正式网页排除草稿。
+
+## 未使用页面清理（2026-10-18）
+
+已删除 Bangumi、Bilibili、MyAnimeList、VNDB 四个列表页面和动态评论嵌入页，以及它们专用的网格、卡片、弹窗、筛选、接口工具、类型、样式、配置、翻译和 VNDB 封面下载脚本，共 34 个文件。构建脚本、站点地图、导航翻译与 llms.txt 的对应引用一并清理。文章评论组件和动态列表继续保留；动态列表的评论 iframe、事件监听与开关已删除。项目目录按用户当前内容保持为空，不添加示例项目。
+
+139 个专用翻译键已从枚举和六种语言文件中删除。公式和 Wiki Link 回归测试改用 `tests/fixtures/` 中的独立样例，增删博客文章不会再破坏这些测试，样例不会进入网站内容。代码检查为 0 errors、0 warnings、0 hints，类型检查、27 项回归测试及完整构建均通过；构建后核对了旧路由移除和现有内容文件的 SHA-256，28 个内容文件均未改动。

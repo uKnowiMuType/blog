@@ -61,9 +61,9 @@ function createPostUrl(contentPath, base = "/") {
 /**
  * 由文章文件的绝对路径反推 content path。
  */
-function toContentPath(filePath) {
+function toContentPath(filePath, postsDir = POSTS_DIR) {
 	return path
-		.relative(POSTS_DIR, filePath)
+		.relative(postsDir, filePath)
 		.replaceAll("\\", "/")
 		.replace(MARKDOWN_EXTENSION, "");
 }
@@ -74,13 +74,13 @@ function toContentPath(filePath) {
  * 否则回退到文件路径。注意 `slug` 不在 posts 的 zod schema 里，
  * 所以它只在这里（直接读 frontmatter）可见，`entry.data` 上取不到。
  */
-function toPostId(meta) {
+function toPostId(meta, postsDir) {
 	const declaredSlug =
 		typeof meta.data.slug === "string" ? meta.data.slug.trim() : "";
 
 	return (
 		declaredSlug ||
-		toContentPath(meta.filePath)
+		toContentPath(meta.filePath, postsDir)
 			.split("/")
 			.map((segment) => slug(segment))
 			.join("/")
@@ -115,9 +115,9 @@ function readMetaFile(filePath) {
 	return meta;
 }
 
-function collectPostMetas() {
+function collectPostMetas(postsDir) {
 	const metas = [];
-	const stack = [POSTS_DIR];
+	const stack = [postsDir];
 
 	while (stack.length > 0) {
 		const dir = stack.pop();
@@ -162,7 +162,7 @@ function findMetaBySlug(metas, target) {
  * 按裸文件名匹配，兼容 Obsidian「尽可能简短的形式」链接格式。
  * 只在全站唯一时接受，重名时要求写出更长的路径。
  */
-function findMetaByBaseName(metas, target) {
+function findMetaByBaseName(metas, target, postsDir) {
 	if (target.includes("/")) {
 		return null;
 	}
@@ -178,7 +178,7 @@ function findMetaByBaseName(metas, target) {
 	if (matches.length > 1) {
 		console.warn(
 			`[remark-wiki-link] "[[${target}]]" 匹配到多个同名文件，已跳过：${matches
-				.map((meta) => toContentPath(meta.filePath))
+				.map((meta) => toContentPath(meta.filePath, postsDir))
 				.join(", ")}。请改写为更长的路径。`,
 		);
 	}
@@ -186,8 +186,8 @@ function findMetaByBaseName(metas, target) {
 	return null;
 }
 
-function readPostMeta(contentPath) {
-	const metas = collectPostMetas();
+function readPostMeta(contentPath, postsDir) {
+	const metas = collectPostMetas(postsDir);
 
 	// 1. frontmatter slug —— 它就是 Astro 的 entry.id，优先级最高
 	const bySlug = findMetaBySlug(metas, contentPath);
@@ -205,14 +205,14 @@ function readPostMeta(contentPath) {
 	];
 
 	for (const candidate of candidates) {
-		const meta = readMetaFile(path.join(POSTS_DIR, candidate));
+		const meta = readMetaFile(path.join(postsDir, candidate));
 		if (meta) {
 			return meta;
 		}
 	}
 
 	// 3. 裸文件名兜底
-	return findMetaByBaseName(metas, contentPath);
+	return findMetaByBaseName(metas, contentPath, postsDir);
 }
 
 function formatPublishedDate(value) {
@@ -343,7 +343,7 @@ function parseWikiLinkValue(value) {
  * 写出 `[[guide/foo|foo]]`——这不是作者指定的标题，只是让笔记里别显示整条路径。
  * 因此别名与链接目标本身重合时视为噪声，回退到文章的 frontmatter title。
  */
-function resolveAlias(parsed, meta) {
+function resolveAlias(parsed, meta, postsDir) {
 	if (!parsed.alias) {
 		return "";
 	}
@@ -354,7 +354,7 @@ function resolveAlias(parsed, meta) {
 		path.basename(parsed.contentPath),
 	]);
 	if (meta) {
-		noise.add(toContentPath(meta.filePath));
+		noise.add(toContentPath(meta.filePath, postsDir));
 		noise.add(path.basename(meta.filePath).replace(MARKDOWN_EXTENSION, ""));
 	}
 
@@ -374,14 +374,14 @@ function createText(value) {
 }
 
 function createWikiLinkCard(parsed, context) {
-	const meta = readPostMeta(parsed.contentPath);
+	const meta = readPostMeta(parsed.contentPath, context.postsDir);
 	if (!meta || (!context.includeDrafts && meta.data.draft === true)) {
 		return null;
 	}
 
-	const resolvedPath = toPostId(meta);
+	const resolvedPath = toPostId(meta, context.postsDir);
 	const title =
-		resolveAlias(parsed, meta) ||
+		resolveAlias(parsed, meta, context.postsDir) ||
 		(typeof meta.data.title === "string" && meta.data.title
 			? meta.data.title
 			: resolvedPath);
@@ -463,13 +463,15 @@ function createWikiLink(value, context) {
 		return null;
 	}
 
-	const meta = parsed.contentPath ? readPostMeta(parsed.contentPath) : null;
+	const meta = parsed.contentPath
+		? readPostMeta(parsed.contentPath, context.postsDir)
+		: null;
 	const title =
 		typeof meta?.data.title === "string" && meta.data.title
 			? meta.data.title
 			: "";
 
-	let text = resolveAlias(parsed, meta);
+	let text = resolveAlias(parsed, meta, context.postsDir);
 	if (!text) {
 		if (parsed.contentPath) {
 			const pageText =
@@ -481,7 +483,10 @@ function createWikiLink(value, context) {
 	}
 
 	const pageUrl = parsed.contentPath
-		? createPostUrl(meta ? toPostId(meta) : parsed.contentPath, context.base)
+		? createPostUrl(
+				meta ? toPostId(meta, context.postsDir) : parsed.contentPath,
+				context.base,
+			)
 		: "";
 	const url = `${pageUrl}${parsed.heading ? `#${slug(parsed.heading)}` : ""}`;
 	if (!context.includeDrafts && meta?.data.draft === true) {
@@ -600,12 +605,17 @@ function transformNode(node, context) {
  * post's `entry.id` rather than from the link text, so a bare file name
  * still produces the post's real URL.
  */
-export function remarkWikiLink({ base = "/", includeDrafts = true } = {}) {
+export function remarkWikiLink({
+	base = "/",
+	includeDrafts = true,
+	postsDir = POSTS_DIR,
+} = {}) {
 	return (tree, file) => {
 		const context = {
 			currentDir: file?.path ? path.dirname(file.path) : null,
 			base,
 			includeDrafts,
+			postsDir,
 		};
 		transformNode(tree, context);
 	};

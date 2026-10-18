@@ -26,8 +26,6 @@ import remarkDirective from "remark-directive"; /* Handle directives */
 import remarkMath from "remark-math";
 import remarkSectionize from "remark-sectionize";
 import {
-	commentConfig,
-	dynamicConfig,
 	expressiveCodeConfig,
 	fontConfig,
 	fontsList,
@@ -242,34 +240,8 @@ export default defineConfig({
 		svelte(),
 		sitemap({
 			filter: (page) => {
-				// 根据页面开关配置过滤sitemap
-				const url = new URL(page);
-				const pathname = url.pathname;
-				if (pathname === "/dynamic/" && !siteConfig.pages.dynamic) {
-					return false;
-				}
-				if (pathname === "/bilibili/" && !siteConfig.pages.bilibili) {
-					return false;
-				}
-				if (pathname === "/bangumi/" && !siteConfig.pages.bangumi) {
-					return false;
-				}
-				if (pathname === "/vndb/" && !siteConfig.pages.vndb) {
-					return false;
-				}
-				if (pathname === "/myanimelist/" && !siteConfig.pages.mal) {
-					return false;
-				}
-				// 动态页评论嵌入页：评论关闭时重定向到 /404/，不应进 sitemap
-				if (
-					pathname === "/dynamic/comments/" &&
-					(dynamicConfig.showComment === false ||
-						!commentConfig.type ||
-						commentConfig.type === "none")
-				) {
-					return false;
-				}
-				return true;
+				const pathname = new URL(page).pathname;
+				return pathname !== `${siteBase}dynamic/` || siteConfig.pages.dynamic;
 			},
 		}),
 		mdx(),

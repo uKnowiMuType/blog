@@ -521,57 +521,6 @@ dynamic-feed {
 	object-fit: cover;
 }
 
-.page-inline-comments {
-	display: block;
-	margin: 0.75rem 0 0 3.75rem;
-	border-top: 1px solid color-mix(in srgb, var(--content-meta) 16%, transparent);
-	padding-top: 0.35rem;
-}
-
-.page-comment-toggle {
-	display: inline-flex;
-	min-height: 2.25rem;
-	align-items: center;
-	gap: 0.4rem;
-	padding: 0 0.25rem;
-	border-radius: 0;
-	background: transparent;
-	color: var(--content-meta);
-	font-size: 0.85rem;
-}
-
-.page-comment-toggle:hover,
-.page-comment-toggle:focus-visible,
-.page-inline-comments[data-expanded="true"] .page-comment-toggle {
-	background: transparent;
-	color: var(--primary);
-}
-
-.page-comment-chevron {
-	transition: transform 180ms ease;
-}
-
-.page-inline-comments[data-expanded="true"] .page-comment-chevron {
-	transform: rotate(180deg);
-}
-
-.page-comment-panel {
-	margin-top: 0.5rem;
-	overflow: hidden;
-}
-
-.page-comment-panel[hidden] {
-	display: none;
-}
-
-.page-comment-frame {
-	display: block;
-	width: 100%;
-	height: 240px;
-	border: 0;
-	background: transparent;
-}
-
 .page-empty {
 	display: grid;
 	min-height: 13rem;
@@ -659,10 +608,6 @@ dynamic-feed {
 	gap: 0.4rem;
 	padding-inline: 0.875rem;
 	text-decoration: none;
-}
-
-.page-comments {
-	margin-top: 0.25rem;
 }
 
 :root.dark .page-author,
