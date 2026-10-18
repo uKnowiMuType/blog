@@ -1,0 +1,25 @@
+---
+import { getIconData, iconToSVG, replaceIDs } from "@iconify/utils";
+import type { HTMLAttributes } from "astro/types";
+import icons from "virtual:astro-icon";
+
+interface Props extends HTMLAttributes<"svg"> {
+	name: string;
+}
+
+const { name, ...props } = Astro.props;
+const [prefix, iconName] = name.includes(":")
+	? name.split(":")
+	: ["local", name];
+const collection = icons[prefix];
+const iconData = collection && getIconData(collection, iconName);
+
+if (!iconData) {
+	throw new Error(`Unable to locate navigation icon "${name}".`);
+}
+
+// 持久导航不参与页面 SVG symbol 计数，避免切页后引用正文中已移除的定义。
+const { attributes, body } = iconToSVG(iconData);
+---
+
+<svg {...attributes} {...props} data-icon={name} aria-hidden="true" set:html={replaceIDs(body)} />
