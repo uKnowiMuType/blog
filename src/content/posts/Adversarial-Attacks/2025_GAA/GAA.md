@@ -102,7 +102,7 @@ $$g' = \hat{g} + (1 - \lambda)g' + (1 + \lambda)\hat{g}$$
 **步骤 4 — 动量更新与投影**：对 $N$ 次采样的梯度取平均以降低方差，使用增强动量 $g_{t+1} = \mu g_t + g / \|g\|_1$ 稳定更新方向，最后通过符号梯度更新并投影回 $\epsilon$-球内：
 $$x^{adv}_{t+1} = \text{clip}_{x,\epsilon}\left(x^{adv}_t + \alpha \cdot \text{sign}(g_{t+1})\right)$$
 
-![[./images/2_fig2.jpg]]
+![Fig. 2](./images/2_fig2.jpg)
 *Fig. 2: 不同攻击方法的梯度方向示意。蓝色 $\nabla f$ 为经验损失梯度（I-FGSM），绿色 $\nabla f_w$ 为最坏感知损失梯度（近似 RAP），棕色 $\nabla f_{PGN}$ 为 PGN 的梯度正则化方向，红色 $\nabla f_{Ours}$ 为 GAA 聚合三种梯度后的更新方向。灰色虚线框表示理想的平坦局部极小值区域。*
 
 ### 最坏感知损失的泰勒近似
@@ -152,7 +152,7 @@ $$h(x') = L_w - L \approx \frac{1}{2}\rho^2 \sigma_{\max} \geq 0$$
 ：一阶泰勒展开
 $$\begin{align*} \max_{\|\tau\|_\infty \le \rho} L(x' + \tau, y_t; \theta) &= \max_{\|\tau\|_\infty \le \rho} L(x', y_t; \theta) + \nabla L(x', y_t; \theta)^T \tau + \mathcal{O}(\tau^2) \\ &\approx \max_{\|\tau\|_\infty \le \rho} L(x', y_t; \theta) + \nabla L(x', y_t; \theta)^T \tau \\ &\approx L(x', y_t; \theta) + \rho \left\| \nabla L(x', y_t; \theta) \right\|_1 \end{align*}$$
 
-![[./images/3_fig3.jpg]]
+![Fig. 3](./images/3_fig3.jpg)
 *Fig. 3: 尖锐局部极小值 $x_1^{adv}$（红色）与平坦局部极小值 $x_2^{adv}$（蓝色）的对比。实线为经验损失 $L$，虚线为最坏感知损失 $L_w$。虽然 $x_1^{adv}$ 的 $L_w$ 更小，但其替代间隙 $h(x)$ 更大（区域更尖锐）；$x_2^{adv}$ 的 $h(x)$ 更小（区域更平坦）。替代间隙是比最坏感知损失更可靠的平坦性指标。*
 
 ### GAA 优化目标的可迁移性分析
